@@ -41,36 +41,17 @@ addLayer("🥰", {
     		description: "ever more",
     		cost: new Decimal(15),
         },
-		14: {
-			title: "buyable unlock",
-    		description: "what",
-    		cost: new Decimal(100),
-        },
+
     },
     buyables: {
-        11: {
-            title: "Smile Buyable",
-            unlocked() {
-                return hasUpgrade('🥰', 14)
-            },
-            cost(x) {
-                return new Decimal(400).mul(Decimal.pow(x, 1.5)).mul(Decimal.pow(1.1, Decimal.pow(x, 1.1))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " smiles" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal (1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            effect(x) {
-                let expo = new Decimal(1)
-                let eff = gain.pow(Decimal.pow(1.5, expo))
-                return eff
-            },
+    11: {
+        cost(x) { return new Decimal(400).mul(x) },
+        display() { return "Slime Hackers" },
+        canAfford() { return player[this.layer].points.gte(this.cost()) },
+        buy() {
+            player[this.layer].points = player[this.layer].points.sub(this.cost())
+            setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
         },
+    },
+}
 })
