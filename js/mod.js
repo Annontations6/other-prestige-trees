@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Emoji Tree",
+	name: "The ??? Tree",
 	id: "mymod",
 	author: "nobody",
-	pointsName: "emoji points",
+	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
