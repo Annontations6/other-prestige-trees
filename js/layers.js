@@ -69,7 +69,7 @@ addLayer("🥰", {
             },
             effect(x) {
                 let expo = new Decimal(1)
-                let eff = base1.pow(Decimal.pow(base2, expo))
+                let eff = base1.pow(Decimal.pow(1.5, expo))
                 return eff
             },
         },
