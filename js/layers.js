@@ -54,7 +54,7 @@ addLayer("🥰", {
                 return hasUpgrade('🥰', 14)
             },
             cost(x) {
-                return new Decimal(400).mul(Decimal.pow(2, 1.5)).mul(Decimal.pow(1.1, Decimal.pow(1.09, 1.1))).floor()
+                return new Decimal(400).mul(Decimal.pow(x, 1.5)).mul(Decimal.pow(1.1, Decimal.pow(x, 1.1))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " smiles" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
@@ -69,7 +69,7 @@ addLayer("🥰", {
             },
             effect(x) {
                 let expo = new Decimal(1)
-                let eff = base1.pow(Decimal.pow(1.5, expo))
+                let eff = gain.pow(Decimal.pow(1.5, expo))
                 return eff
             },
         },
