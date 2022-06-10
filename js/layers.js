@@ -72,9 +72,9 @@ addLayer("🥰", {
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
         },
     },
-	    11=2: {
+	    12: {
         cost(x) { return new Decimal(10000).mul(x) },
-        display() { return "Slime Hackers" },
+        display() { return "Slime Fire" },
         canAfford() { return player[this.layer].points.gte(this.cost()) },
         buy() {
             player[this.layer].points = player[this.layer].points.sub(this.cost())
