@@ -41,7 +41,16 @@ addLayer("🥰", {
     		description: "ever more",
     		cost: new Decimal(15),
         },
-
+		14: {
+			title: "double gain",
+    		description: "ever ever more",
+    		cost: new Decimal(600),
+        },
+		21: {
+			title: "quintuple gain",
+    		description: "ever times more",
+    		cost: new Decimal(1500),
+        },
     },
     buyables: {
     11: {
