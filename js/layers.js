@@ -41,5 +41,10 @@ addLayer("🥰", {
     		description: "ever more",
     		cost: new Decimal(15),
         },
+		14: {
+			title: "buyable unlock",
+    		description: "what",
+    		cost: new Decimal(15),
+        },
     },
 })
