@@ -39,7 +39,7 @@ addLayer("🥰", {
 		13: {
 			title: "10 gain",
     		description: "ever more",
-    		cost: new Decimal(1),
+    		cost: new Decimal(15),
         },
     },
 })
