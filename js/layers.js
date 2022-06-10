@@ -44,7 +44,7 @@ addLayer("🥰", {
 		14: {
 			title: "buyable unlock",
     		description: "what",
-    		cost: new Decimal(15),
+    		cost: new Decimal(100),
         },
     },
     buyables: {
