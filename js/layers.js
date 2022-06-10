@@ -51,10 +51,29 @@ addLayer("🥰", {
     		description: "ever times more",
     		cost: new Decimal(1500),
         },
+		22: {
+			title: "triple gain",
+    		description: "wait wait",
+    		cost: new Decimal(5000),
+        },
+		23: {
+			title: "triple gain",
+    		description: "wait wait while?",
+    		cost: new Decimal(25000),
+        },
     },
     buyables: {
     11: {
         cost(x) { return new Decimal(400).mul(x) },
+        display() { return "Slime Hackers" },
+        canAfford() { return player[this.layer].points.gte(this.cost()) },
+        buy() {
+            player[this.layer].points = player[this.layer].points.sub(this.cost())
+            setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+        },
+    },
+	    11=2: {
+        cost(x) { return new Decimal(10000).mul(x) },
         display() { return "Slime Hackers" },
         canAfford() { return player[this.layer].points.gte(this.cost()) },
         buy() {
