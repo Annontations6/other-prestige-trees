@@ -31,6 +31,11 @@ addLayer("A", {
     		description: "of get...",
     		cost: new Decimal(5),
         },
+		12: {
+			title: "More Log12(points) product",
+    		description: "yes of me",
+    		cost: new Decimal(15),
+        },
     },
 })
 
