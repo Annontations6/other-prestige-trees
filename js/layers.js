@@ -32,9 +32,14 @@ addLayer("A", {
     		cost: new Decimal(5),
         },
 		12: {
-			title: "More Log12(points) product",
+			title: "More Log2(points) product",
     		description: "yes of me",
     		cost: new Decimal(15),
+        },
+		13: {
+			title: "More Log2(points) product",
+    		description: "yes of me aaaa",
+    		cost: new Decimal(125),
         },
     },
 })
