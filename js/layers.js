@@ -41,6 +41,16 @@ addLayer("α", {
     		description: "2x5x8",
     		cost: new Decimal(50),
         },
+		21: {
+			title: "times five",
+    		description: "2x5x8x5",
+    		cost: new Decimal(1000),
+        },
+		22: {
+			title: "times five another",
+    		description: "2x5x8x5x5",
+    		cost: new Decimal(7500),
+        },
     },
 })
 
