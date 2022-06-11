@@ -87,6 +87,11 @@ addLayer("B", {
     		description: "or do you?!?!?!!",
     		cost: new Decimal(5),
         },
+		13: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(45),
+        },
     },
 })
 
