@@ -95,7 +95,7 @@ addLayer("β", {
 		13: {
 			title: "x10 gain",
     		description: "9x10x10",
-    		cost: new Decimal(69),
+    		cost: new Decimal(696),
         },
     },
 })
