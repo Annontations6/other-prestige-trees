@@ -75,7 +75,19 @@ addLayer("B", {
     hotkeys: [
         {key: "b", description: "B: Reset for b points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Log2(Points) product",
+    		description: "this aaaaaaaaaaa",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(5),
+        },
+    },
 })
 
 addLayer("C", {
