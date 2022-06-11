@@ -61,6 +61,11 @@ addLayer("🥰", {
     		description: "wait wait while?",
     		cost: new Decimal(25000),
         },
+		31: {
+			title: "x6 gain",
+    		description: "yes yes",
+    		cost: new Decimal(50000),
+        },
     },
     buyables: {
     11: {
