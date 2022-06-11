@@ -138,5 +138,10 @@ addLayer("γ", {
     		description: "15x10",
     		cost: new Decimal(30),
         },
+		13: {
+			title: "Triple gain",
+    		description: "15x10x3",
+    		cost: new Decimal(100),
+        },
     },
 })
