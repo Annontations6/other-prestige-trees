@@ -24,5 +24,77 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Add 1",
+    		description: "you have",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "Add 5",
+    		description: "you have",
+    		cost: new Decimal(2),
+        },
+		13: {
+			title: "idk",
+    		description: "i something times 2",
+    		cost: new Decimal(10),
+        },
+		14: {
+			title: "yes of",
+    		description: "this add aaaaa",
+    		cost: new Decimal(25),
+        },
+		15: {
+			title: "of do",
+    		description: "times 3",
+    		cost: new Decimal(100),
+        },
+		16: {
+			title: "thousand gain",
+    		description: "h",
+    		cost: new Decimal(500),
+        },
+		21: {
+			title: "yes",
+    		description: "cool tree",
+    		cost: new Decimal(1500),
+        },
+		22: {
+			title: "while",
+    		description: "yes of yes",
+    		cost: new Decimal(10000),
+        },
+		23: {
+			title: "mulit 10",
+    		description: "hi",
+    		cost: new Decimal(30000),
+        },
+		31: {
+			title: "yes",
+    		description: "what",
+    		cost: new Decimal(90000),
+        },
+		32: {
+			title: "Gemotry Dash",
+    		description: "where",
+    		cost: new Decimal(300000),
+        },
+		33: {
+			title: "mulit 10",
+    		description: "hi",
+    		cost: new Decimal(3e6),
+        },
+		34: {
+			title: "mulit 10",
+    		description: "what",
+    		cost: new Decimal(3e7),
+        },
+		35: {
+			title: "mulit 1000",
+    		description: "oh",
+    		cost: new Decimal(1e9),
+        },
+    },
 })
