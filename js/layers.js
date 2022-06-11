@@ -31,6 +31,11 @@ addLayer("α", {
     		description: "+1 aplha",
     		cost: new Decimal(3),
         },
+		12: {
+			title: "2x5",
+    		description: "ten TEN ten per second",
+    		cost: new Decimal(3),
+        },
     },
 })
 
