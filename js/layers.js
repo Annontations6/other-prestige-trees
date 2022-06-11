@@ -80,5 +80,17 @@ addLayer("β", {
     hotkeys: [
         {key: "b", description: "b: Reset for beta", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "ever triple",
+    		description: "x9",
+    		cost: new Decimal(2),
+        },
+		12: {
+			title: "x10 gain",
+    		description: "9x10",
+    		cost: new Decimal(69),
+        },
+    },
 })
