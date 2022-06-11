@@ -24,7 +24,14 @@ addLayer("α", {
     hotkeys: [
         {key: "a", description: "A: Reset for aplha points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Aplha gain",
+    		description: "+1 aplha",
+    		cost: new Decimal(3),
+        },
+    },
 })
 
 addLayer("β", {
