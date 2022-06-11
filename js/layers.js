@@ -41,6 +41,11 @@ addLayer("A", {
     		description: "yes of me aaaa",
     		cost: new Decimal(125),
         },
+		21: {
+			title: "times ten",
+    		description: "will do what 10...",
+    		cost: new Decimal(125),
+        },
     },
 })
 
