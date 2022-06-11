@@ -36,6 +36,11 @@ addLayer("α", {
     		description: "ten TEN ten per second",
     		cost: new Decimal(3),
         },
+		13: {
+			title: "eighth",
+    		description: "2x5x8",
+    		cost: new Decimal(50),
+        },
     },
 })
 
