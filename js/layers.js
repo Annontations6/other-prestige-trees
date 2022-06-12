@@ -172,7 +172,29 @@ addLayer("D", {
     hotkeys: [
         {key: "d", description: "D: Reset for d points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Log2(Points) product",
+    		description: "this aaaaaaaaaaa",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(5),
+        },
+		13: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(45),
+        },
+		21: {
+			title: "More Log2(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(450),
+        },
+    },
 })
 
 addLayer("E", {
@@ -201,7 +223,29 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "E: Reset for e points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Log2(Points) product",
+    		description: "this aaaaaaaaaaa",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(5),
+        },
+		13: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(45),
+        },
+		21: {
+			title: "More Log2(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(450),
+        },
+    },
 })
 
 addLayer("F", {
@@ -230,7 +274,29 @@ addLayer("F", {
     hotkeys: [
         {key: "b", description: "B: Reset for b points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Log2(Points) product",
+    		description: "this aaaaaaaaaaa",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(5),
+        },
+		13: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(45),
+        },
+		21: {
+			title: "More Log2(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(450),
+        },
+    },
 })
 
 addLayer("f(t)", {
@@ -259,5 +325,42 @@ addLayer("f(t)", {
     hotkeys: [
         {key: "m", description: "M: Reset for function teach points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Log2(Points) product",
+    		description: "this aaaaaaaaaaa",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(5),
+        },
+		13: {
+			title: "More Log10(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(45),
+        },
+		21: {
+			title: "More Log2(Points) product",
+    		description: "or do you?!?!?!!",
+    		cost: new Decimal(450),
+        },
+		22: {
+			title: "Increase by tertate",
+    		description: "timed of tertate",
+    		cost: new Decimal("1e400"),
+        },
+		23: {
+			title: "nice",
+    		description: "h",
+    		cost: new Decimal("1ee20"),
+        },
+		31: {
+			title: "Ultimate Upgrade!??!?!?!?!?",
+    		description: "get this ultimate upgrade gets for a be formula for percentage this increase by 50%.",
+    		cost: new Decimal("eeee308"),
+        },
+    },
 })
