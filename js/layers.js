@@ -36,6 +36,21 @@ addLayer("M", {
     		description: "tracting...",
     		cost: new Decimal(3),
         },
+		13: {
+			title: "Feel Minutes Tract",
+    		description: "tracting...",
+    		cost: new Decimal(7),
+        },
+		21: {
+			title: "Feel Minute what Tract",
+    		description: "tracting...",
+    		cost: new Decimal(20),
+        },
+		22: {
+			title: "Feel Minute while Tract",
+    		description: "tracting...",
+    		cost: new Decimal(60),
+        },
     },
 })
 
