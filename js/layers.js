@@ -24,7 +24,19 @@ addLayer("M", {
     hotkeys: [
         {key: "m", description: "M: Reset for minute points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Minute Production",
+    		description: "this game for minute.",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "Feel Minute Tract",
+    		description: "tracting...",
+    		cost: new Decimal(3),
+        },
+    },
 })
 
 addLayer("D", {
