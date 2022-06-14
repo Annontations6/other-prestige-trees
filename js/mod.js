@@ -5,8 +5,8 @@ let modInfo = {
 	pointsName: "emoji points",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
+	discordName: "My Emojipedia Search Emoji",
+	discordLink: "https://emojipedia.org/",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 24,  // In hours
 }
