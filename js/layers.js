@@ -31,6 +31,46 @@ addLayer("M", {
     		description: "you have logratims times.",
     		cost: new Decimal(5),
         },
+		12: {
+			title: "fround ten times",
+    		description: "ccooll!",
+    		cost: new Decimal(50),
+        },
+		13: {
+			title: "more more",
+    		description: "yyyy",
+    		cost: new Decimal(4000),
+        },
+		14: {
+			title: "nice",
+    		description: "i good?",
+    		cost: new Decimal(400000),
+        },
+		21: {
+			title: "based",
+    		description: "what whT",
+    		cost: new Decimal(1e20),
+        },
+		22: {
+			title: "Power of Gain",
+    		description: "speedrun!",
+    		cost: new Decimal(1e35),
+        },
+		23: {
+			title: "Power 3 of Gain",
+    		description: "speedrunrun!",
+    		cost: new Decimal(1e80),
+        },
+		31: {
+			title: "Tetrare",
+    		description: "speedrunrun^3!",
+    		cost: new Decimal("1e10000"),
+        },
+		32: {
+			title: "Ultimate Upgrade!?!?!??!",
+    		description: "win for triple",
+    		cost: new Decimal("1e10000"),
+        },
     },
 })
 
