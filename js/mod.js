@@ -40,7 +40,7 @@ function canGenPoints(){
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
-		return new Decimal(0)
+		return new Decimal(10)
 
 	let gain = new Decimal(1)
 	if (hasUpgrade('M', 11)) gain = gain.times(player.points.log10())
