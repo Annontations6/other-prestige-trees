@@ -27,21 +27,22 @@ addLayer("M", {
     layerShown(){return true}
 })
 
-addLayer("A", {
+addLayer("a", {
     startData() { return {
         unlocked: true,
         points: new Decimal(0),
     }},
-    color: "blue",
+    color: "yellow",
     resource: "Achievements", 
     row: "side",
     achievements: {
         11: {
             name: "Start the game",
             done() {return player.M.points.gte("1")},
-            goalTooltip: "when start sus",
-            doneTooltip: "when do get see now!",
+            goalTooltip: "what if do get now?",
+            doneTooltip: "You started the game!",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
     },
 },
 )
