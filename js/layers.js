@@ -24,7 +24,14 @@ addLayer("M", {
     hotkeys: [
         {key: "m", description: "M: Reset for mega points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "More Based times log10(points) for times",
+    		description: "you have logratims times.",
+    		cost: new Decimal(5),
+        },
+    },
 })
 
 addLayer("a", {
