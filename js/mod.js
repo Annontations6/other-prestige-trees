@@ -44,6 +44,14 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 	if (hasUpgrade('M', 11)) gain = gain.times(player.points.log10())
+	if (hasUpgrade('M', 12)) gain = gain.times(999)
+	if (hasUpgrade('M', 13)) gain = gain.times(99)
+	if (hasUpgrade('M', 14)) gain = gain.times(99999)
+	if (hasUpgrade('M', 21)) gain = gain.times(99)
+	if (hasUpgrade('M', 22)) gain = gain.times(9999)
+	if (hasUpgrade('M', 23)) gain = gain.times(9e10)
+	if (hasUpgrade('M', 31)) gain = gain.times("1ee10")
+	if (hasUpgrade('M', 32)) gain = gain.times(2)
 	return gain
 }
 
