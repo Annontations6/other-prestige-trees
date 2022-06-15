@@ -66,6 +66,11 @@ addLayer("🥰", {
     		description: "yes yes",
     		cost: new Decimal(50000),
         },
+		32: {
+			title: "x5 gain",
+    		description: "you have these for unlock a new layer",
+    		cost: new Decimal(50000),
+        },
     },
     buyables: {
     11: {
