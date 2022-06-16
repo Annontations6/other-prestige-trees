@@ -55,6 +55,13 @@ addLayer("AC1", {
             doneTooltip: "Reach 100 cookies is done!",
             onComplete() {player[this.layer].points = player[this.layer].points.add(10)}
         },
+        12: {
+            name: "youtube created year cooies",
+            done() {return player.points.gte("2005")},
+            goalTooltip: "Reach 2,005 cookies.",
+            doneTooltip: "Reach 2,005 cookies is done!",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(10)}
+        },
     },
 },
 )
