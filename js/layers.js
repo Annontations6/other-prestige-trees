@@ -24,7 +24,14 @@ addLayer("C", {
     hotkeys: [
         {key: "a", description: "A: Reset for cookie factory", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Cookies Triple!",
+    		description: "while triples gain!",
+    		cost: new Decimal(5),
+        },
+    },
 })
 
 addLayer("AC1", {
