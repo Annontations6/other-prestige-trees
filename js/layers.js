@@ -26,3 +26,23 @@ addLayer("C", {
     ],
     layerShown(){return true}
 })
+
+addLayer("AC1", {
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+    color: "yellow",
+    resource: "Achievements Cookies", 
+    row: "side",
+    achievements: {
+        11: {
+            name: "Cookies This Awesome!",
+            done() {return player.points.gte("100")},
+            goalTooltip: "Reach 100 cookies.",
+            doneTooltip: "Reach 100 cookies is done!",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(10)}
+        },
+    },
+},
+)
