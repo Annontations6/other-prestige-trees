@@ -31,6 +31,11 @@ addLayer("C", {
     		description: "while triples gain!",
     		cost: new Decimal(5),
         },
+		12: {
+			title: "Cookies Triple another!",
+    		description: "when do specting gets!",
+    		cost: new Decimal(25),
+        },
     },
 })
 
