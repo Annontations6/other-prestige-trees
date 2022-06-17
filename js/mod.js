@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Cookie Tree",
+	name: "The Math Tree",
 	id: "mymod",
 	author: "nobody",
-	pointsName: "cookies",
+	pointsName: "math seconds for equalition",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
