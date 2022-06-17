@@ -31,5 +31,45 @@ addLayer("S", {
     		description: "Start gaining points.",
     		cost: new Decimal(1),
         },
+		12: {
+			title: "Unlock Buyable",
+    		description: "wow",
+    		cost: new Decimal(3),
+        },
+		13: {
+			title: "Generation Buyable",
+    		description: "aaaa this buyable.",
+    		cost: new Decimal(3),
+        },
     },
+	 buyables: {
+        11: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('S', 12)
+            },
+            cost(x) {
+                return new Decimal(5).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " summations" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('one', 13)) base2 = base2.mul(upgradeEffect('S', 13))
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        },
 })
