@@ -39,7 +39,12 @@ addLayer("S", {
 		13: {
 			title: "Generation Buyable",
     		description: "aaaa this buyable.",
-    		cost: new Decimal(3),
+    		cost: new Decimal(15),
+        },
+		14: {
+			title: "triple gain have these good?",
+    		description: "aaaa this buyable.",
+    		cost: new Decimal(20),
         },
     },
 	 buyables: {
