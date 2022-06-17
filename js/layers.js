@@ -65,7 +65,7 @@ addLayer("S", {
             effect(x) {
                 let base1 = new Decimal(2.5)
                 let base2 = x
-                if(hasUpgrade('one', 13)) base2 = base2.mul(upgradeEffect('S', 13))
+                if(hasUpgrade('S', 13)) base2 = base2.mul(3)
                 let expo = new Decimal(0.6)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
