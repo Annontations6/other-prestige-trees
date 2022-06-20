@@ -51,6 +51,21 @@ addLayer("B", {
     		description: "gain mulit by 3 and new letter 3 buyable.",
     		cost: new Decimal(120000),
         },
+		21: {
+			title: "Buyable Power III",
+    		description: "yes do yes!",
+    		cost: new Decimal(1e6),
+        },
+		22: {
+			title: "Freaking Triple Gain",
+    		description: "you spect?",
+    		cost: new Decimal(5e6),
+        },
+		23: {
+			title: "Buyable IV",
+    		description: "gain mulit by 4, new letter 4 buyable and unlock a new layer.",
+    		cost: new Decimal(2.5e7),
+        },
     },
 	buyables: {
         11: {
@@ -141,6 +156,36 @@ addLayer("B", {
                 return eff
             },
         },
+		21: {
+            title: "D Buyable",
+            unlocked() {
+                return hasUpgrade('B', 23)
+            },
+            cost(x) {
+                return new Decimal(1e6).mul(Decimal.pow(4, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " zeros" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost zero gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub((this.cost()).mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2)
+                let base2 = x
+                if(hasUpgrade('B', 24)) base2 = base2.mul(3)
+                let base3 = x.add(1)
+                if(hasUpgrade('B', 24)) base3 = base3.mul(2)
+                let expo = new Decimal(1.5)
+                let eff = base1.pow(Decimal.pow(base2, expo)).mul(base3)
+                return eff
+            },
+        },
     },
 })
 
@@ -170,6 +215,6 @@ addLayer("C", {
     hotkeys: [
         {key: "c", description: "C: Reset for big prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return hasUpgrade('B', 23)}
 })
 
