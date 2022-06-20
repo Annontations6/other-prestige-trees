@@ -66,6 +66,16 @@ addLayer("B", {
     		description: "gain mulit by 4, new letter 4 buyable and unlock a new layer.",
     		cost: new Decimal(2.5e7),
         },
+		24: {
+			title: "Buyable Power IV",
+    		description: "forruf",
+    		cost: new Decimal(1e50),
+        },
+		25: {
+			title: "Freaking Triple Gain II",
+    		description: "you spected?",
+    		cost: new Decimal(1e96),
+        },
     },
 	buyables: {
         11: {
