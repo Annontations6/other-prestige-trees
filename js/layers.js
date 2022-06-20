@@ -51,7 +51,7 @@ addLayer("B", {
         11: {
             title: "A Buyable",
             unlocked() {
-                return hasUpgrade('zero', 11)
+                return hasUpgrade('B', 11)
             },
             cost(x) {
                 return new Decimal(3).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
