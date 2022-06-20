@@ -215,6 +215,18 @@ addLayer("C", {
     hotkeys: [
         {key: "c", description: "C: Reset for big prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('B', 23)}
+    layerShown(){return hasUpgrade('B', 23)},
+	upgrades: {
+		11: {
+			title: "Triple Gain",
+    		description: "x3 gain",
+    		cost: new Decimal(1),
+        },
+		12: {
+			title: "Or Do You!",
+    		description: "x5 gain",
+    		cost: new Decimal(8),
+        },
+    },
 })
 
