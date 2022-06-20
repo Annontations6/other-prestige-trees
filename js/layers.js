@@ -24,7 +24,14 @@ addLayer("B", {
     hotkeys: [
         {key: "b", description: "B: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Buyable I",
+    		description: "gain 69% and new letter 1 buyable.",
+    		cost: new Decimal(2),
+        },
+    },
 })
 
 addLayer("C", {
