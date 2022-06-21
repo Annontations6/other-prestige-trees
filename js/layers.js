@@ -36,7 +36,7 @@ addLayer("t", {
 		points: new Decimal(0),
     }},
     color: "#FF0000",
-    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1e10), // Can be a function that takes requirement increases into account
     resource: "trate", // Name of prestige currency
     baseResource: "minutes", // Name of resource prestige is based on
     baseAmount() {return player.m.points}, // Get the current amount of baseResource
