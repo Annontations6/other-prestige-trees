@@ -128,6 +128,7 @@ addLayer("m", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
+        },
     },
 })
 
