@@ -24,7 +24,111 @@ addLayer("m", {
     hotkeys: [
         {key: "0", description: "0: Reset for minutes ", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Nots where?",
+    		description: "You do spect to game know :)",
+    		cost: new Decimal(1),
+        },
+        12: {
+			title: "Buyable",
+    		description: "unlock new buyable.",
+    		cost: new Decimal(9),
+        },
+        13: {
+			title: "Buyable Generator",
+    		description: "wwoowoowowowoow",
+    		cost: new Decimal(150),
+        },
+        14: {
+			title: "Triple Gain Nation?",
+    		description: "use this triple gain for x1 -> x3",
+    		cost: new Decimal(2000),
+        },
+        15: {
+			title: "Tears",
+    		description: "you have first hour to buy.",
+    		cost: new Decimal(3600),
+        },
+        21: {
+			title: "Four Mulitipler Gain",
+    		description: "use this four mulitipler gain for x3 -> x12",
+    		cost: new Decimal(9000),
+        },
+        22: {
+			title: "Four Mulitipler Gain Another",
+    		description: "use this four mulitipler gain for x12 -> x48",
+    		cost: new Decimal(36000),
+        },
+        23: {
+			title: "Buyable II",
+    		description: "unlock new another buyable.",
+    		cost: new Decimal(1e5),
+        },
+        24: {
+			title: "Buyable These?",
+    		description: "generation",
+    		cost: new Decimal(1e7),
+        },
+    },
+    buyables: {
+        11: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('m', 12)
+            },
+            cost(x) {
+                return new Decimal(10).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('m', 13)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        12: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('m', 23)
+            },
+            cost(x) {
+                return new Decimal(1e4).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('m', 24)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+    },
 })
 
 addLayer("t", {
