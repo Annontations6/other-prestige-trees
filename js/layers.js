@@ -71,6 +71,11 @@ addLayer("m", {
     		description: "generation",
     		cost: new Decimal(1e7),
         },
+        25: {
+			title: "My Layer",
+    		description: "unlock new layer.",
+    		cost: new Decimal(1e7),
+        },
     },
     buyables: {
         11: {
@@ -156,9 +161,53 @@ addLayer("t", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "0", description: "0: Reset for minutes ", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "1", description: "1: Reset for trates ", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return hasUpgrade('m', 11)},
+    upgrades: {
+		11: {
+			title: "You have trate buyable?",
+    		description: "what",
+    		cost: new Decimal(1000),
+        },
+    },
+    milestones: {
+        0: {
+            requirementDescription: "20 trate",
+            effectDescription: "Unlock new buyable.",
+            done() { return player.t.points.gte(20) }
+        },
+    },
+    buyables: {
+        11: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasMilestone("t", 0)
+            },
+            cost(x) {
+                return new Decimal(5).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "trate" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('m', 11)) base2 = base2.mul(2)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+    },
 })
 
 addLayer("A1", {
@@ -227,10 +276,24 @@ addLayer("A1", {
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
         24: {
-            name: "Endgame",
+            name: "Trillion",
             done() {return player.points.gte("1e12")},
-            goalTooltip: "reach 1 trillion second a finsh to time tree!",
-            doneTooltip: "reach 1 trillion second a finsh to time tree!",
+            goalTooltip: "reach 1 trillion second",
+            doneTooltip: "reach 1 trillion second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        25: {
+            name: "You do spent?",
+            done() {return player.points.gte("4.2e13")},
+            goalTooltip: "reach 42 trillion second",
+            doneTooltip: "reach 42 trillion second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        31: {
+            name: "Endgame",
+            done() {return player.points.gte("1e14")},
+            goalTooltip: "reach 100 trillion second a finsh to time tree!",
+            doneTooltip: "reach 100 trillion second a finsh to time tree!",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
