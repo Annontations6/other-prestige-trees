@@ -177,6 +177,16 @@ addLayer("t", {
             effectDescription: "Unlock new buyable.",
             done() { return player.t.points.gte(20) }
         },
+        1: {
+            requirementDescription: "1,000,000 trate",
+            effectDescription: "double gain and Unlock new  another buyable.",
+            done() { return player.t.points.gte(1e6) }
+        },
+        2: {
+            requirementDescription: "666,666,666 trate",
+            effectDescription: "New Buyable Generation.",
+            done() { return player.t.points.gte(666666666) }
+        },
     },
     buyables: {
         11: {
@@ -201,7 +211,35 @@ addLayer("t", {
             effect(x) {
                 let base1 = new Decimal(2.5)
                 let base2 = x
-                if(hasUpgrade('m', 11)) base2 = base2.mul(2)
+                if(hasUpgrade('t', 11)) base2 = base2.mul(2)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        12: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasMilestone("t", 1)
+            },
+            cost(x) {
+                return new Decimal(5).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "trate" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasMilestone("t", 2)) base2 = base2.mul(2)
                 let expo = new Decimal(0.6)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
@@ -290,10 +328,65 @@ addLayer("A1", {
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
         31: {
-            name: "Endgame",
+            name: "I think?",
             done() {return player.points.gte("1e14")},
-            goalTooltip: "reach 100 trillion second a finsh to time tree!",
-            doneTooltip: "reach 100 trillion second a finsh to time tree!",
+            goalTooltip: "reach 100 trillion second",
+            doneTooltip: "reach 100 trillion second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        32: {
+            name: "Sorry",
+            done() {return player.points.gte("1e20")},
+            goalTooltip: "reach 100 quintillion second",
+            doneTooltip: "reach 100 quintillion second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        33: {
+            name: "Softcapped Sextillion",
+            done() {return player.points.gte("1e23")},
+            goalTooltip: "reach 1 sextillion seconds per second",
+            doneTooltip: "reach 1 sextillion seconds per second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        34: {
+            name: "1 Xenna Softcapped",
+            done() {return player.points.gte("1e29")},
+            goalTooltip: "reach 1 octillion seconds per second",
+            doneTooltip: "reach 1 octillion seconds per second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        35: {
+            name: "Very Long Time GG",
+            done() {return player.points.gte("1e32")},
+            goalTooltip: "reach 100 nillion seconds",
+            doneTooltip: "reach 100 nillion seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+    },
+},
+)
+
+addLayer("A2", {
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+    color: "yellow",
+    resource: "Achievement 2", 
+    row: "side",
+    achievements: {
+        11: {
+            name: "Reach Decillion!",
+            done() {return player.points.gte("1e33")},
+            goalTooltip: "reach 1 decillion seconds",
+            doneTooltip: "reach 1 decillion seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        12: {
+            name: "Endgame",
+            done() {return player.points.gte("1e35")},
+            goalTooltip: "i hard to game to finshes",
+            doneTooltip: "reach 1 decillion seconds per second and finsh to time tree.",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
@@ -321,6 +414,13 @@ addLayer("SA", {
             done() {return player.points.gte("4e15")},
             goalTooltip: "???",
             doneTooltip: "impossible quadrillion seconds?",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        13: {
+            name: "Very Long time...",
+            done() {return player.timePlayed > 9999},
+            goalTooltip: "???",
+            doneTooltip: "i think reach 10,000 seconds.",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },

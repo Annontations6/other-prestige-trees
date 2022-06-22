@@ -8,7 +8,7 @@ let modInfo = {
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 2,  // In hours
 }
 
 // Set your version in num and name
@@ -51,6 +51,7 @@ function getPointGen() {
 	gain = gain.times(buyableEffect('m', 11))
 	gain = gain.times(buyableEffect('m', 12))
 	gain = gain.times(buyableEffect('t', 11))
+	gain = gain.times(buyableEffect('t', 12))
 	return gain
 }
 
@@ -64,7 +65,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal("1e35"))
 }
 
 
@@ -78,7 +79,7 @@ var backgroundStyle = {
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-	return(3600) // Default is 1 hour which is just arbitrarily large
+	return(7200) // Default is 1 hour which is just arbitrarily large
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
