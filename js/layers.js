@@ -163,7 +163,7 @@ addLayer("t", {
     hotkeys: [
         {key: "1", description: "1: Reset for trates ", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('m', 11)},
+    layerShown(){return hasUpgrade('m', 25)},
     upgrades: {
 		11: {
 			title: "You have trate buyable?",
