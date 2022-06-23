@@ -52,6 +52,9 @@ function getPointGen() {
 	gain = gain.times(buyableEffect('m', 12))
 	gain = gain.times(buyableEffect('t', 11))
 	gain = gain.times(buyableEffect('t', 12))
+	gain = gain.times(buyableEffect('t', 13))
+	gain = gain.times(buyableEffect('t', 21))
+	gain = gain.times(buyableEffect('t', 22))
 	gain = gain.times(buyableEffect('fx', 11))
 	return gain
 }
