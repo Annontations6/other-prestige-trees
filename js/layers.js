@@ -185,6 +185,11 @@ addLayer("t", {
     		description: "what gg",
     		cost: new Decimal("1e305"),
         },
+        15: {
+			title: "Triple gain.",
+    		description: "what gg",
+    		cost: new Decimal("1e315"),
+        },
     },
     milestones: {
         0: {
@@ -400,6 +405,26 @@ addLayer("fx", {
     		description: "you do",
     		cost: new Decimal(150),
         },
+        13: {
+			title: "Variable II",
+    		description: "unlock variable buyable",
+    		cost: new Decimal(1e6),
+        },
+        14: {
+			title: "Variable II generation",
+    		description: "you do",
+    		cost: new Decimal(1e7),
+        },
+        15: {
+			title: "Variable III",
+    		description: "unlock variable buyable",
+    		cost: new Decimal(1e12),
+        },
+        21: {
+			title: "Variable III generation",
+    		description: "you do",
+    		cost: new Decimal(1e18),
+        },
     },
     buyables: {
         11: {
@@ -425,6 +450,62 @@ addLayer("fx", {
                 let base1 = new Decimal(2.5)
                 let base2 = x
                 if(hasUpgrade('fx', 12)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        12: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('fx', 13)
+            },
+            cost(x) {
+                return new Decimal(10).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('fx', 13)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        13: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('fx', 15)
+            },
+            cost(x) {
+                return new Decimal(10).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('fx', 21)) base2 = base2.mul(10)
                 let expo = new Decimal(0.6)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
@@ -679,10 +760,31 @@ addLayer("A3", {
     row: "side",
     achievements: {
         11: {
-            name: "Endgame",
+            name: "Happend Omega Layers EZ?",
             done() {return player.points.gte("1e327")},
-            goalTooltip: "reach 1e327 seconds and finsh to time tree.",
-            doneTooltip: "reach 1e327 seconds and finsh to time tree.",
+            goalTooltip: "reach 1e327 seconds",
+            doneTooltip: "reach 1e327 seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        12: {
+            name: "Three await",
+            done() {return player.points.gte("3.33e333")},
+            goalTooltip: "reach 3.33e333 seconds",
+            doneTooltip: "reach 3.33e333 seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        13: {
+            name: "Over stills await softcapped",
+            done() {return player.points.gte("3.33e335")},
+            goalTooltip: "reach 3.33e333 sps",
+            doneTooltip: "reach 3.33e333 sps",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        14: {
+            name: "Endgame",
+            done() {return player.points.gte("1e336")},
+            goalTooltip: "reach 1e336 seconds and finsh to time tree.",
+            doneTooltip: "reach 1e336 seconds and finsh to time tree.",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
