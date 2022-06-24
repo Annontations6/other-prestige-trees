@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "To Terminusfinity!",
 	id: "mymod",
 	author: "nobody",
-	pointsName: "points",
+	pointsName: "Inpredictafinity",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -42,8 +42,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
-	if (hasUpgrade('C', 11)) gain = gain.times(3)
+	let gain = new Decimal("10^^99999")
 	return gain
 }
 
