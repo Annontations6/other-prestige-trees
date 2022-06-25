@@ -21,12 +21,12 @@ addLayer("dα", {
 
     gainMult() {                            // Returns your multiplier to your gain of the prestige resource.
         mult = new Decimal(1);
-        if (hasUpgrade('dα', 31)) mult = mult.times(1.69)
+        if (hasUpgrade('dα', 32)) mult = mult.times(1.69)
         return mult;              // Factor in any bonuses multiplying gain here.
     },
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
         exp = new Decimal(1);
-        if (hasUpgrade('dα', 31)) exp = exp.add(0.02)
+        if (hasUpgrade('dα', 32)) exp = exp.add(0.02)
         return exp;
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -157,7 +157,7 @@ addLayer("dβ", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
 
-    layerShown(){return true}
+    layerShown(){return hasUpgrade('dα', 32)}
 })
 
 addLayer("dγ", {
