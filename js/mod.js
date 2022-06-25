@@ -44,6 +44,10 @@ function getPointGen() {
 	if (hasUpgrade('dα', 12)) gain = gain.times(player.dα.points.sqrt())
 	if (hasUpgrade('dα', 13)) gain = gain.times(player.dα.points.log10())
 	if (hasUpgrade('dα', 14)) gain = gain.times(player.dα.points.sqrt())
+	if (hasUpgrade('dα', 21)) gain = gain.times(player.dα.points.log10())
+	if (hasUpgrade('dα', 22)) gain = gain.times(player.dα.points.log10())
+	if (hasUpgrade('dα', 23)) gain = gain.times(player.dα.points.sqrt())
+	if (hasUpgrade('dα', 24)) gain = gain.times(player.dα.points.sqrt())
 	return gain
 }
 
