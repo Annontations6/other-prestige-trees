@@ -64,6 +64,7 @@ addLayer("dβ", {
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
         return new Decimal(1)
     },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
 
     layerShown(){return true}
 })
@@ -95,6 +96,7 @@ addLayer("dγ", {
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
         return new Decimal(1)
     },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
 
     layerShown(){return true}
 })
