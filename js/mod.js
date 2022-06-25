@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
+	name: "The Digit Tree",
+	id: "A6TDT",
+	author: "Annontations6",
 	pointsName: "digits",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -40,6 +40,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('dα', 11)) gain = gain.times(player.dα.points.sqrt())
 	return gain
 }
 
