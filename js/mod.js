@@ -2,25 +2,22 @@ let modInfo = {
 	name: "The ??? Tree",
 	id: "mymod",
 	author: "nobody",
-	pointsName: "points",
+	pointsName: "digits",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
+	discordName: "Letter Layers Creator My Discord Server :)",
+	discordLink: "https://discord.gg/WbQhM2j8",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 48,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "1.0.0",
+	name: "Start",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+let changelog = `i later link for changelog.html?`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -43,7 +40,6 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade('C', 11)) gain = gain.times(3)
 	return gain
 }
 
@@ -57,7 +53,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.dγ.points.gte(new Decimal("8"))
 }
 
 
@@ -71,7 +67,7 @@ var backgroundStyle = {
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-	return(3600) // Default is 1 hour which is just arbitrarily large
+	return(172800) // Default is 1 hour which is just arbitrarily large
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
