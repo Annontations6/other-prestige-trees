@@ -41,6 +41,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 	if (hasUpgrade('dα', 11)) gain = gain.times(player.dα.points.sqrt())
+	if (hasUpgrade('dα', 12)) gain = gain.times(player.dα.points.sqrt())
 	return gain
 }
 

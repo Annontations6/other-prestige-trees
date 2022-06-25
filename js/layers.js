@@ -34,6 +34,11 @@ addLayer("dα", {
     		description: "use for sqrt:√dα",
     		cost: new Decimal(2),
         },
+        12: {
+			title: "Digit Alpha Better Formula II",
+    		description: "use for sqrt:√dα",
+    		cost: new Decimal(5),
+        },
     },
 })
 
