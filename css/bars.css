@@ -15,7 +15,7 @@
 
 .overlayTextContainer {
 	z-index: 3;
-	border-radius: 10px;
+	border-radius: 12px;
 	vertical-align: middle;
 	display: flex;
 	justify-content: center;
