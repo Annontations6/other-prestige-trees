@@ -59,6 +59,9 @@ function getPointGen() {
 	gain = gain.times(buyableEffect('fx', 11))
 	gain = gain.times(buyableEffect('fx', 12))
 	gain = gain.times(buyableEffect('fx', 13))
+	gain = gain.times(buyableEffect('q', 11))
+	gain = gain.times(buyableEffect('q', 12))
+	if (hasUpgrade('q', 23)) gain = gain.pow(player.points)
 	return gain
 }
 

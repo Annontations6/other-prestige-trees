@@ -15,6 +15,10 @@ addLayer("m", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('q', 11)) mult = mult.times(3)
+        if (hasUpgrade('q', 12)) mult = mult.times(3)
+        if (hasUpgrade('q', 13)) mult = mult.times(3)
+        if (hasUpgrade('q', 14)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -154,6 +158,8 @@ addLayer("t", {
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('q', 21)) mult = mult.times(3)
+        if (hasUpgrade('q', 24)) mult = mult.times(1.69)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -514,6 +520,140 @@ addLayer("fx", {
     },
 })
 
+addLayer("q", {
+    name: "qumark", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "q", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FF0000",
+    requires: new Decimal("1.00e180"), // Can be a function that takes requirement increases into account
+    resource: "qumark", // Name of prestige currency
+    baseResource: "points", // Name of resource prestige is based on
+    baseAmount() {return player.t.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 1, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "3", description: "3: Reset for qumark ", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+    layerShown(){return true},
+	upgrades: {
+		11: {
+			title: "Buyable",
+    		description: "unlock new buyable",
+    		cost: new Decimal(3),
+        },
+        12: {
+			title: "Triple Gain minutes",
+    		description: "boost for minutes.",
+    		cost: new Decimal(1000),
+        },
+        13: {
+			title: "Triple Gain minutes II",
+    		description: "boost for minutes and buyable generation.",
+    		cost: new Decimal(1e4),
+        },
+        14: {
+			title: "Triple Gain minutes IIi",
+    		description: "boost for minutes.",
+    		cost: new Decimal(1e6),
+        },
+        15: {
+			title: "Buyable II",
+    		description: "unlock new anthoer buyable.",
+    		cost: new Decimal(1e7),
+        },
+        21: {
+			title: "Triple gain trate",
+    		description: "boost for trate.",
+    		cost: new Decimal(1e9),
+        },
+        22: {
+			title: "Unicode fix",
+    		description: "gain 69% and buyable another generation.",
+    		cost: new Decimal(1e12),
+        },
+        23: {
+			title: "Tertate of Rescoures",
+    		description: "use better formula. ^^0 -> ^^1.2",
+    		cost: new Decimal("1e1000"),
+        },
+        24: {
+			title: "Ultimate upgrade",
+    		description: "gain 69% for trate.",
+    		cost: new Decimal("10^^308"),
+        },
+    },
+    buyables: {
+        11: {
+            title: "Point Buyable",
+            unlocked() {
+                return hasUpgrade('q', 11)
+            },
+            cost(x) {
+                return new Decimal(10).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost point gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('q', 13)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        12: {
+            title: "Trate Buyable",
+            unlocked() {
+                return hasUpgrade('q', 15)
+            },
+            cost(x) {
+                return new Decimal(1e6).mul(Decimal.pow(2, x)).mul(Decimal.pow(1.25, Decimal.pow(x, 1.1))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "minutes" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost trate gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.5)
+                let base2 = x
+                if(hasUpgrade('q', 22)) base2 = base2.mul(10)
+                let expo = new Decimal(0.6)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+    },
+})
+
 addLayer("A1", {
     startData() { return {
         unlocked: true,
@@ -781,10 +921,52 @@ addLayer("A3", {
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
         14: {
-            name: "Endgame",
+            name: "When do",
             done() {return player.points.gte("1e336")},
-            goalTooltip: "reach 1e336 seconds and finsh to time tree.",
-            doneTooltip: "reach 1e336 seconds and finsh to time tree.",
+            goalTooltip: "reach 1e336 seconds",
+            doneTooltip: "reach 1e336 seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        15: {
+            name: "You Win!",
+            done() {return player.points.gte("1e350")},
+            goalTooltip: "or do you",
+            doneTooltip: "or do you",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        21: {
+            name: "Text power long await",
+            done() {return player.points.gte("ee38")},
+            goalTooltip: "reach 1 gold second (somehow?)",
+            doneTooltip: "reach 1 gold second (somehow?)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        22: {
+            name: "Text power^2 long await",
+            done() {return player.points.gte("ee30008")},
+            goalTooltip: "reach 1 gold gold second (somehow?)",
+            doneTooltip: "reach 1 gold gold second (somehow?)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        23: {
+            name: "γs = eee38",
+            done() {return player.points.gte("eee38")},
+            goalTooltip: "reach 1 gamma second",
+            doneTooltip: "reach 1 gamma second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        24: {
+            name: "❯1 = eee3008",
+            done() {return player.points.gte("eee3008")},
+            goalTooltip: "reach 1 speed 1 second",
+            doneTooltip: "reach 1 speed 1 second",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        25: {
+            name: "❯2 = eeee308",
+            done() {return player.points.gte("eeee308")},
+            goalTooltip: "reach 1 speed 2 second",
+            doneTooltip: "reach 1 speed 2 second",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
@@ -826,6 +1008,20 @@ addLayer("SA", {
             done() {return player.points.gte("2.22e222")},
             goalTooltip: "???",
             doneTooltip: "two two two TWOS? seconds",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        15: {
+            name: "possible",
+            done() {return player.points.gte("9e9999")},
+            goalTooltip: "???",
+            doneTooltip: "ninee9999",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        21: {
+            name: "Poγγ",
+            done() {return player.points.gte("10^^308")},
+            goalTooltip: "???",
+            doneTooltip: "owned ultimate upgrade",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
