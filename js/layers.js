@@ -38,5 +38,6 @@ addLayer("p", {
     "blank",
     "upgrades"
 ],
-    layerShown(){return true}
+    layerShown(){return true},
+	//coming soon
 })
