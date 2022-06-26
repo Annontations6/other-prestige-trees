@@ -24,5 +24,19 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    tabFormat: [
+    "main-display",
+    ["prestige-button"],
+    "blank",
+    ["display-text",
+        function() { return 'I have ' + format(player.points) + ' pointy points!' },
+        { "color": "red", "font-size": "32px", "font-family": "Comic Sans MS" }],
+    "blank",
+    ["toggle", ["c", "beep"]],
+    "milestones",
+    "blank",
+    "blank",
+    "upgrades"
+],
     layerShown(){return true}
 })
