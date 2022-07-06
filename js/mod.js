@@ -18,7 +18,7 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0.1</h3><br>
+	<h3>v0.0.1-v0.0.2</h3><br>
 		- Private Bulid.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -43,7 +43,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 	if(hasUpgrade("b", 11)) gain = gain.times(2)
-	gain = gain.times(t)
+	gain = gain.times(t.div(100))
 	return gain
 }
 

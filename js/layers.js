@@ -24,9 +24,17 @@ addLayer("b", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
+    automate() {
+        // VARIABLE DESCREASING
+        if (t.gte(1)) {
+          //somenthing related to zero.
+        } else {
+            t = t.sub(1)
+        }
+    },
     clickables: {
         11: {
-            display() {return "Blah"},
+            display() {return "Adjust T"},
             canClick() {return true},
             onClick() {
                 t = new Decimal(125)
