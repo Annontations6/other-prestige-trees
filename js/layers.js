@@ -32,6 +32,11 @@ addLayer("b", {
             // when
         }
     },
+    passiveGeneration() {
+        let passivebase = 0
+        if (hasUpgrade('b', 12)) passivebase = 1
+        return passivebase
+    },
     clickables: {
         11: {
             display() {return "Adjust T"},
@@ -46,6 +51,11 @@ addLayer("b", {
             title:"Double gain",
             description: "Double your point gain.",
             cost: new Decimal(1),
+        },
+        12: {
+            title:"Passivebase",
+            description: "triple gain and gained per second.",
+            cost: new Decimal(5),
         },
     }
 })

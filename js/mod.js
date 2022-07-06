@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
+	name: "The Balance Tree",
+	id: "exponentialtree",
+	author: "Annontations6",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -13,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.0.3",
+	name: "Private",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0.1-v0.0.2</h3><br>
+	<h3>v0.0.1-v0.0.3</h3><br>
 		- Private Bulid.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
