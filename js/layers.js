@@ -27,9 +27,9 @@ addLayer("b", {
     automate() {
         // VARIABLE DESCREASING
         if (t.gte(1)) {
-          //somenthing related to zero.
-        } else {
             t = t.sub(1)
+        } else {
+            // when
         }
     },
     clickables: {
