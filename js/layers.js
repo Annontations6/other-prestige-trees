@@ -57,5 +57,10 @@ addLayer("b", {
             description: "triple gain and gained per second.",
             cost: new Decimal(5),
         },
+        13: {
+            title:"Boost gain",
+            description: "Boost your point gain.",
+            cost: new Decimal(100),
+        },
     }
 })
