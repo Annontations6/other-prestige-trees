@@ -46,6 +46,7 @@ function getPointGen() {
 	if(hasUpgrade("b", 13)) gain = gain.times(player.b.points.sqrt())
 	if(hasUpgrade("b", 14)) gain = gain.times(player.b.points.sqrt())
 	if(hasAchievement("b", 14)) gain = gain.times(2)
+	if(hasAchievement("b", 15)) gain = gain.times(2)
 	gain = gain.times(t.div(100))
 	return gain
 }

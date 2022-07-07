@@ -73,6 +73,54 @@ addLayer("b", {
             description: "x10 mulitipler of gain.",
             cost: new Decimal(7.5e3),
         },
+        21: {
+            title:"x3 Gain",
+            description: "x3 mulitipler of gain.",
+            cost: new Decimal(1e5),
+        },
+        22: {
+            title:"x10 Gain",
+            description: "x10 mulitipler of gain.",
+            cost: new Decimal(1e6),
+        },
+        23: {
+            title:"x10 Gain",
+            description: "x10 mulitipler of gain.",
+            cost: new Decimal(1e7),
+        },
+        24: {
+            title:"x10 Gain",
+            description: "x10 mulitipler of gain.",
+            cost: new Decimal(1e8),
+        },
+        25: {
+            title:"x10 Gain",
+            description: "x10 mulitipler of gain.",
+            cost: new Decimal(1e9),
+        },
+        31: {
+            title:"Buyable",
+            description: "unlock new buyable.",
+            cost: new Decimal(1e9),
+        },
+    },
+    milestones: {
+        0: {
+            requirementDescription: "1e10 waffles",
+            effectDescription: "Automatticly Adjust T",
+            done() { return player.b.points.gte(1e10) }
+        }
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal(1).mul(x) },
+            display() { return "<h2>&beta; (Point Buyable)</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+        },
     }
 })
 
@@ -111,6 +159,34 @@ addLayer("a", {
             done() {return player.b.points.gte("69420")},
             goalTooltip: "Reach 69,420 Balance. Reward: Double your point gain.",
             doneTooltip: "Reach 69,420 Balance. Reward: Double your point gain. (Completed!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        15: {
+            name: "Balance?",
+            done() {return player.b.points.gte("4.2e5")},
+            goalTooltip: "Reach 420,000 Balance. Reward: Double your point gain.",
+            doneTooltip: "Reach 420,000 Balance. Reward: Double your point gain. (Completed!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        21: {
+            name: "Classic",
+            done() {return player.b.points.gte("1e7")},
+            goalTooltip: "Reach 10,000,000 Balance.",
+            doneTooltip: "Reach 10,000,000 Balance. (Completed!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        22: {
+            name: "Nice",
+            done() {return player.b.points.gte("1e8")},
+            goalTooltip: "Reach 100,000,000 Balance.",
+            doneTooltip: "Reach 100,000,000 Balance. (Completed!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
+        },
+        23: {
+            name: "Billion",
+            done() {return player.b.points.gte("1e7")},
+            goalTooltip: "Reach 1e9 Balance.",
+            doneTooltip: "Reach 1e9 Balance. (Completed!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)}
         },
     },
