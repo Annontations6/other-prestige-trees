@@ -36,6 +36,9 @@ addLayer("c", {
         if (hasUpgrade("c", 34)) {
             mult = mult.times(25)
         }
+        if (hasUpgrade("c", 35)) {
+            mult = mult.times(20)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },
@@ -114,6 +117,11 @@ addLayer("c", {
             title:"Mulitipled?",
             description:"gain mulitipled so gain.",
             cost:new Decimal(1e14)
+        },
+        35:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e24)
         },
     },
     buyables: {
@@ -269,6 +277,48 @@ addLayer("a", {
             done() {return player.c.points.gte(1e12)},
             goalTooltip: "Reach 1e12 city.",
             doneTooltip: "Reach 1e12 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        51: {
+            name: "Quadrillion!",
+            done() {return player.c.points.gte(1e15)},
+            goalTooltip: "Reach 1e15 city.",
+            doneTooltip: "Reach 1e15 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        52: {
+            name: "Quintillion!",
+            done() {return player.c.points.gte(1e18)},
+            goalTooltip: "Reach 1e18 city.",
+            doneTooltip: "Reach 1e18 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        53: {
+            name: "Sextillion!",
+            done() {return player.c.points.gte(1e21)},
+            goalTooltip: "Reach 1e21 city.",
+            doneTooltip: "Reach 1e21 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        54: {
+            name: "Septillion!",
+            done() {return player.c.points.gte(1e24)},
+            goalTooltip: "Reach 1e24 city.",
+            doneTooltip: "Reach 1e24 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        55: {
+            name: "Octillion!",
+            done() {return player.c.points.gte(1e27)},
+            goalTooltip: "Reach 1e27 city.",
+            doneTooltip: "Reach 1e27 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        61: {
+            name: "3 Rows Done?",
+            done() {return hasUpgrade("c", 35)},
+            goalTooltip: "Reach 15 Owned Upgrades.",
+            doneTooltip: "Reach 15 Owned Upgrades. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
