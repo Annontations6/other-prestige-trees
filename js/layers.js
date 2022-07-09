@@ -18,6 +18,9 @@ addLayer("c", {
         if (hasUpgrade("c", 13)) {
             mult = mult.times(player.points.add(6).log(6))
         }
+        if (hasUpgrade("c", 15)) {
+            mult = mult.times(12)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -46,5 +49,68 @@ addLayer("c", {
             description:"log10(p) gain.",
             cost:new Decimal(250)
         },
+        15:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(350)
+        },
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal.pow(5, x).mul(200) },
+            display() { return "<h2>Point Buyable</h2>" },
+            unlocked() {return hasAchievement("c", 23)},
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let pow = new Decimal(2.25)
+                let l = new Decimal.pow(pow, x)
+                return l
+            }
+        },
     }
 })
+
+addLayer("a", {
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+    color: "blue",
+    resource: "Achievements", 
+    symbol: "A",
+    row: "side",
+    layerShown(){return player[this.layer].best.gt(0)},
+    achievements: {
+        11: {
+            name: "Unlock Achievents!",
+            done() {return player.points.gte("100")},
+            tooltip: "Hmm...",
+        },
+        21: {
+            name: "Lol",
+            done() {return player.points.gte(696)},
+            goalTooltip: "Reach 696 points.",
+            doneTooltip: "Reach 696 points. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        22: {
+            name: "1 Row Done?",
+            done() {return player.points.gte(696)},
+            goalTooltip: "Reach 5 Owned Upgrades.",
+            doneTooltip: "Reach 5 Owned Upgrades. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        23: {
+            name: "A Thousand?",
+            done() {return player.points.gte(696)},
+            goalTooltip: "Reach 1,000 points. Reward: Unlock new buyable.",
+            doneTooltip: "Reach 1,000 points. Reward: Unlock new buyable. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+    },
+},
+)
