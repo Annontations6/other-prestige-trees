@@ -18,11 +18,11 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-    <h3>v1.0.0 - Start</h3><br>
+    <h3>v1.1.0 - Intergales & Reaction Mathjax = 15/8/2022</h3><br>
         - Added 3 Upgrades.<br>
         - Added 1 Milestone.<br>
         - Endgame at 30 Zig Zag.
-	<h3>v1.0.0 - Start</h3><br>
+	<h3>v1.0.0 - Start = 9/7/2022</h3><br>
 		- Added 2 Layers.<br>
 		- Added 22 Upgrades.<br>
 		- Added 2 Buyables.<br>
