@@ -29,7 +29,7 @@ addLayer("yet-another-merge-game", {
         11: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B1" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -38,7 +38,7 @@ addLayer("yet-another-merge-game", {
         12: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B2" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -47,7 +47,7 @@ addLayer("yet-another-merge-game", {
         13: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B3" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -56,7 +56,7 @@ addLayer("yet-another-merge-game", {
         21: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B4" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -65,7 +65,7 @@ addLayer("yet-another-merge-game", {
         22: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B5" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -74,7 +74,7 @@ addLayer("yet-another-merge-game", {
         23: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B6" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -83,7 +83,7 @@ addLayer("yet-another-merge-game", {
         31: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B7" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -92,7 +92,7 @@ addLayer("yet-another-merge-game", {
         32: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B8" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
@@ -101,7 +101,7 @@ addLayer("yet-another-merge-game", {
         33: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
             display() { return "B9" },
-            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            canAfford() { return points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
