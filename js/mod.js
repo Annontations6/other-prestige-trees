@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0.0",
-	name: "Start",
+	num: "1.1.0",
+	name: "Intergales & Reaction Mathjax",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
