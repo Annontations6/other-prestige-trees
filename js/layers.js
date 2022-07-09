@@ -30,6 +30,13 @@ addLayer("c", {
         if (hasUpgrade("c", 31)) {
             mult = mult.times(20)
         }
+        if (hasUpgrade("c", 33)) {
+            mult = mult.times(25)
+        }
+        if (hasUpgrade("c", 34)) {
+            mult = mult.times(25)
+        }
+        mult = mult.times(buyableEffect("c", 12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -93,6 +100,21 @@ addLayer("c", {
             description:"gain mulitipled so gain.",
             cost:new Decimal(1e9)
         },
+        32:{
+            title:"Buyable",
+            description:"unlock new buyable..",
+            cost:new Decimal(1e11)
+        },
+        33:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e12)
+        },
+        34:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e14)
+        },
     },
     buyables: {
         11: {
@@ -106,6 +128,21 @@ addLayer("c", {
             },
             effect(x) {
                 let pow = new Decimal(2.25)
+                let l = new Decimal.pow(pow, x)
+                return l
+            }
+        },
+        12: {
+            cost(x) { return new Decimal.pow(9, x).mul(1e10) },
+            display() { return "<h2>City Buyable</h2>" },
+            unlocked() {return hasUpgrade("c", 32)},
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let pow = new Decimal(3)
                 let l = new Decimal.pow(pow, x)
                 return l
             }
@@ -201,9 +238,37 @@ addLayer("a", {
         },
         41: {
             name: "Billion",
-            done() {return player.c.points.gte(333333333)},
+            done() {return player.c.points.gte(1e9)},
             goalTooltip: "Reach 1e9 city.",
             doneTooltip: "Reach 1e9 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        42: {
+            name: "Dword End",
+            done() {return player.c.points.gte(2147483648)},
+            goalTooltip: "Reach 2.14e9 city.",
+            doneTooltip: "Reach 2.14e9 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        43: {
+            name: "1e10 City a lot",
+            done() {return player.c.points.gte(1e10)},
+            goalTooltip: "Reach 1e10 city.",
+            doneTooltip: "Reach 1e10 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        44: {
+            name: "69 billion 420 million City",
+            done() {return player.c.points.gte(6.9420e10)},
+            goalTooltip: "Reach 6.9420e10 city.",
+            doneTooltip: "Reach 6.9420e10 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        45: {
+            name: "Trillion!",
+            done() {return player.c.points.gte(1e12)},
+            goalTooltip: "Reach 1e12 city.",
+            doneTooltip: "Reach 1e12 city. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
