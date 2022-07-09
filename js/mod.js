@@ -18,6 +18,11 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+    <h3>v1.0.0 - Start</h3><br>
+        - Added 3 Upgrades.<br>
+        - Added 1 Milestone.<br>
+        - Added 1 Layers Passivebase<br>
+        - Endgame at 5 Zig Zag.
 	<h3>v1.0.0 - Start</h3><br>
 		- Added 2 Layers.<br>
 		- Added 22 Upgrades.<br>

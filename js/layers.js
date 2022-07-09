@@ -51,6 +51,9 @@ addLayer("c", {
         if (hasUpgrade("zz", 12)) {
             mult = mult.times(Math.PI * 2)
         }
+        if (hasUpgrade("zz", 13)) {
+            mult = mult.times(50)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },
@@ -218,6 +221,9 @@ addLayer("zz", {
     exponent: 0.04, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade("zz", 14)) {
+            mult = mult.times(2)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -236,6 +242,28 @@ addLayer("zz", {
             description:"tau city gain...",
             cost:new Decimal(2)
         },
+        13:{
+            title:"x50 city gain",
+            description:"x50 city gain...",
+            cost:new Decimal(3)
+        },
+        14:{
+            title:"Double zig zag gain",
+            description:"double zig zag gain...",
+            cost:new Decimal(5)
+        },
+        15:{
+            title:"Tau city gain",
+            description:"tau city gain...",
+            cost:new Decimal(15)
+        },
+    },
+    milestones: {
+        0: {
+            requirementDescription: "15 zig zag",
+            effectDescription: "x10 gain.",
+            done() { return player.zz.points.gte(15) }
+        }
     }
 })
 
@@ -529,17 +557,66 @@ addLayer("a", {
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
         95: {
-            name: "best End?",
+            name: "Two Two",
             done() {return hasUpgrade("zz", 12)},
             goalTooltip: "Reach 22 Owned Upgrade in Total Layers",
             doneTooltip: "Reach 22 Owned Upgrade in Total Layers (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
         101: {
-            name: "Endgame of v1.0.0",
+            name: "Five Zig Zag",
             done() {return player.zz.points.gte(5)},
             goalTooltip: "Reach 5 zig zag.",
             doneTooltip: "Reach 5 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        102: {
+            name: "Begin for idler",
+            done() {return player.zz.points.gte(7)},
+            goalTooltip: "Reach 7 zig zag.",
+            doneTooltip: "Reach 7 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        103: {
+            name: "Octalogue",
+            done() {return player.zz.points.gte(8)},
+            goalTooltip: "Reach 8 zig zag.",
+            doneTooltip: "Reach 8 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        104: {
+            name: "10 Dosent?",
+            done() {return player.zz.points.gte(10)},
+            goalTooltip: "Reach 10 zig zag.",
+            doneTooltip: "Reach 10 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        105: {
+            name: "Fifdecuple",
+            done() {return player.zz.points.gte(15)},
+            goalTooltip: "Reach 15 zig zag.",
+            doneTooltip: "Reach 15 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        111: {
+            name: "Best End?",
+            done() {return player.zz.points.gte(15)},
+            goalTooltip: "Reach 15 zig zag.",
+            doneTooltip: "Reach 15 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        112: {
+            name: "Milestone Given",
+            done() {return hasMilestone("zz", 0)},
+            goalTooltip: "Reach Given Milestone first!",
+            doneTooltip: "Reach Given Milestone first! (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        113: {
+            name: "Endgame of v1.1.0",
+            done() {return player.zz.points.gte(30)},
+            goalTooltip: "Reach 30 zig zag.",
+            doneTooltip: "Reach 30 zig zag. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
