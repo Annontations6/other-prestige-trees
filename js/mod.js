@@ -53,6 +53,9 @@ function getPointGen() {
 	if (hasUpgrade("c", 14)) {
 		gain = gain.times(player.points.add(10).log10())
 	}
+	if (hasUpgrade("c", 22)) {
+		gain = gain.times(player.a.points)
+	}
 	gain = gain.times(buyableEffect("c", 11))
 	return gain
 }
