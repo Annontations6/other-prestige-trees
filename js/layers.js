@@ -106,9 +106,9 @@ addLayer("a", {
         },
         23: {
             name: "A Thousand?",
-            done() {return player.points.gte(696)},
-            goalTooltip: "Reach 1,000 points. Reward: Unlock new buyable.",
-            doneTooltip: "Reach 1,000 points. Reward: Unlock new buyable. (Compeleted!)",
+            done() {return player.c.points.gte(1e3)},
+            goalTooltip: "Reach 1,000 city. Reward: Unlock new buyable.",
+            doneTooltip: "Reach 1,000 city. Reward: Unlock new buyable. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
