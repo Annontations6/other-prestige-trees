@@ -334,6 +334,27 @@ addLayer("a", {
             doneTooltip: "Reach 15 Owned Upgrades. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
+        62: {
+            name: "Nonillion!",
+            done() {return player.c.points.gte(1e30)},
+            goalTooltip: "Reach 1e30 city.",
+            doneTooltip: "Reach 1e30 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        63: {
+            name: "Decillion!",
+            done() {return player.c.points.gte(1e33)},
+            goalTooltip: "Reach 1e33 city.",
+            doneTooltip: "Reach 1e33 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        64: {
+            name: "Undecillion!",
+            done() {return player.c.points.gte(1e36)},
+            goalTooltip: "Reach 1e36 city.",
+            doneTooltip: "Reach 1e36 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
     },
 },
 )
