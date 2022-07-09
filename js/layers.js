@@ -56,6 +56,11 @@ addLayer("c", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
+    passiveGeneration() {
+        let passivebase = 0
+        if (hasUpgrade('zz', 11)) passivebase = 0.5
+        return passivebase
+    },
     upgrades:{
         11:{
             title:"Double gain",
@@ -152,6 +157,11 @@ addLayer("c", {
             description:"gain mulitipled so gain.",
             cost:new Decimal(1e45)
         },
+        45:{
+            title:"Base",
+            description:"gain mulitipled so gain and unlock new layer.",
+            cost:new Decimal(1e54)
+        },
     },
     buyables: {
         11: {
@@ -184,6 +194,39 @@ addLayer("c", {
                 return l
             }
         },
+    }
+})
+
+addLayer("zz", {
+    name: "zig zag", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "ZZ", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#00FFA2",
+    requires: new Decimal(1e54), // Can be a function that takes requirement increases into account
+    resource: "zig zag", // Name of prestige currency
+    baseResource: "city", // Name of resource prestige is based on
+    baseAmount() {return player.c.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.2, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 0.04, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return hasUpgrade("c", 45) || player.zz.best.gt(0)},
+    upgrades:{
+        11:{
+            title:"Gained",
+            description:"Get auto gain...",
+            cost:new Decimal(1)
+        }
     }
 })
 
@@ -439,6 +482,34 @@ addLayer("a", {
             done() {return player.c.points.gte(1e63)},
             goalTooltip: "Reach 1e63 city.",
             doneTooltip: "Reach 1e63 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        85: {
+            name: "4 Rows Done?",
+            done() {return hasUpgrade("c", 35)},
+            goalTooltip: "Reach 20 Owned Upgrades.",
+            doneTooltip: "Reach 20 Owned Upgrades. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        91: {
+            name: "Zig Zaging",
+            done() {return player.zz.points.gte(1)},
+            goalTooltip: "Reach 1 zig zag.",
+            doneTooltip: "Reach 1 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        92: {
+            name: "Double Zig Zag",
+            done() {return player.zz.points.gte(2)},
+            goalTooltip: "Reach 2 zig zag.",
+            doneTooltip: "Reach 2 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        93: {
+            name: "Auto Gain",
+            done() {return hasUpgrade("zz", 11)},
+            goalTooltip: "Reach 21 Owned Upgrade in Total Layers",
+            doneTooltip: "Reach 21 Owned Upgrade in Total Layers (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
