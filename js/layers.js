@@ -59,7 +59,7 @@ addLayer("c", {
         11: {
             cost(x) { return new Decimal.pow(5, x).mul(200) },
             display() { return "<h2>Point Buyable</h2>" },
-            unlocked() {return hasAchievement("c", 23)},
+            unlocked() {return hasAchievement("a", 23)},
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
