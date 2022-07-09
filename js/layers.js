@@ -27,6 +27,11 @@ addLayer("c", {
             title:"Double gain",
             description:"Double your point gain.",
             cost:new Decimal(3)
-        }
+        },
+        12:{
+            title:"Primary Equaltion?",
+            description:"unlock new primary equaltion.",
+            cost:new Decimal(3)
+        },
     }
 })
