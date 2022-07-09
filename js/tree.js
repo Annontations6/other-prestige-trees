@@ -1,6 +1,6 @@
 var layoutInfo = {
     startTab: "none",
-    startNavTab: "tree-tab",
+    startNavTab: "yet-another-merge-game",
 	showTree: true,
 
     treeLayout: ""
