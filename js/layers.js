@@ -44,7 +44,7 @@ addLayer("c", {
         14:{
             title:"log(p)",
             description:"log10(p) gain.",
-            cost:new Decimal(2500)
+            cost:new Decimal(250)
         },
     }
 })
