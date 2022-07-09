@@ -21,5 +21,12 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades:{
+        11:{
+            title:"Double gain",
+            description:"Double your point gain.",
+            cost:new Decimal(3)
+        }
+    }
 })
