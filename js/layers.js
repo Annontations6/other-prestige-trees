@@ -15,6 +15,9 @@ addLayer("c", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade("c", 13)) {
+            mult = mult.times(player.points.add(6).log(6))
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -32,6 +35,11 @@ addLayer("c", {
             title:"Triple gain",
             description:"triple your point gain.",
             cost:new Decimal(10)
+        },
+        13:{
+            title:"Mulit?",
+            description:"mulitipler for gain.",
+            cost:new Decimal(25)
         },
     }
 })
