@@ -54,6 +54,9 @@ addLayer("c", {
         if (hasUpgrade("zz", 13)) {
             mult = mult.times(50)
         }
+        if (hasUpgrade("zz", 15)) {
+            mult = mult.times(Math.PI * 2)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },

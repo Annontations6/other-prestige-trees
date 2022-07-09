@@ -21,8 +21,7 @@ let changelog = `<h1>Changelog:</h1><br>
     <h3>v1.0.0 - Start</h3><br>
         - Added 3 Upgrades.<br>
         - Added 1 Milestone.<br>
-        - Added 1 Layers Passivebase<br>
-        - Endgame at 5 Zig Zag.
+        - Endgame at 30 Zig Zag.
 	<h3>v1.0.0 - Start</h3><br>
 		- Added 2 Layers.<br>
 		- Added 22 Upgrades.<br>
@@ -70,6 +69,9 @@ function getPointGen() {
 	if (hasUpgrade("c", 41)) {
 		gain = gain.times(player.a.points)
 	}
+	if (hasMilestone("zz", 0)) {
+		gain = gain.times(10)
+	}
 	gain = gain.times(buyableEffect("c", 11))
 	return gain
 }
@@ -84,7 +86,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.zz.points.gte(5)
+	return player.zz.points.gte(30)
 }
 
 
