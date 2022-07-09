@@ -1,28 +1,32 @@
 let modInfo = {
 	name: "The Idle Tree",
-	id: "mymod",
-	author: "nobody",
+	id: "idletree",
+	author: "Annontations6",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal(0), // Used for hard resets and new players
 	offlineLimit: 24,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "1.0.0",
+	name: "Start",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v1.0.0 - Start</h3><br>
+		- Added 2 Layers.<br>
+		- Added 22 Upgrades.<br>
+		- Added 2 Buyables.<br>
+		- Added 1 Layers Passivebase<br>
+		- Endgame at 5 Zig Zag.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -43,6 +47,25 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade("c", 11)) {
+		gain = gain.times(2)
+	}
+	if (hasUpgrade("c", 12)) {
+		gain = gain.times(3)
+	}
+	if (hasUpgrade("c", 14)) {
+		gain = gain.times(player.points.add(10).log10())
+	}
+	if (hasUpgrade("c", 22)) {
+		gain = gain.times(player.a.points)
+	}
+	if (hasUpgrade("c", 25)) {
+		gain = gain.times(player.points.add(10).log10())
+	}
+	if (hasUpgrade("c", 41)) {
+		gain = gain.times(player.a.points)
+	}
+	gain = gain.times(buyableEffect("c", 11))
 	return gain
 }
 
@@ -56,7 +79,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.zz.points.gte(5)
 }
 
 
