@@ -24,14 +24,6 @@ let changelog = `<h1>Changelog:</h1><br>
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
-let display = ""
-
-function UpdateDisplay() {
-	if (hasUpgrade("c", 12)) {
-		display = "n(" + player.timePlayed + ") = " + format(player.canGenPoints)
-	}
-}
-
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -64,7 +56,6 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	display
 ]
 
 // Determines when the game "ends"
