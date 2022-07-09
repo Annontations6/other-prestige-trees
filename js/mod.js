@@ -1,26 +1,29 @@
 let modInfo = {
 	name: "The Idle Tree",
-	id: "mymod",
-	author: "nobody",
+	id: "idletree",
+	author: "Annontations6",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal(0), // Used for hard resets and new players
 	offlineLimit: 24,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "1.0.0",
+	name: "Start",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v1.0.0 - Start</h3><br>
+		- Added 2 Layers.<br>
+		- Added 22 Upgrades.<br>
+		- Added 2 Buyables.<br>
+		- Added 1 Layers Passivebase<br>
+		- Endgame at 5 Zig Zag.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -76,7 +79,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.zz.points.gte(5)
 }
 
 

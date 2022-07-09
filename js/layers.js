@@ -48,6 +48,9 @@ addLayer("c", {
         if (hasUpgrade("c", 44)) {
             mult = mult.times(35)
         }
+        if (hasUpgrade("zz", 12)) {
+            mult = mult.times(Math.PI * 2)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },
@@ -227,7 +230,12 @@ addLayer("zz", {
             title:"Gained",
             description:"Get auto gain...",
             cost:new Decimal(1)
-        }
+        },
+        12:{
+            title:"Tau city gain",
+            description:"tau city gain...",
+            cost:new Decimal(2)
+        },
     }
 })
 
@@ -511,6 +519,27 @@ addLayer("a", {
             done() {return hasUpgrade("zz", 11)},
             goalTooltip: "Reach 21 Owned Upgrade in Total Layers",
             doneTooltip: "Reach 21 Owned Upgrade in Total Layers (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        94: {
+            name: "Triple Zig Zag",
+            done() {return player.zz.points.gte(3)},
+            goalTooltip: "Reach 3 zig zag.",
+            doneTooltip: "Reach 3 zig zag. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        95: {
+            name: "best End?",
+            done() {return hasUpgrade("zz", 12)},
+            goalTooltip: "Reach 22 Owned Upgrade in Total Layers",
+            doneTooltip: "Reach 22 Owned Upgrade in Total Layers (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        101: {
+            name: "Endgame of v1.0.0",
+            done() {return player.zz.points.gte(5)},
+            goalTooltip: "Reach 5 zig zag.",
+            doneTooltip: "Reach 5 zig zag. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
