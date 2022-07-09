@@ -45,6 +45,9 @@ addLayer("c", {
         if (hasUpgrade("c", 43)) {
             mult = mult.times(30)
         }
+        if (hasUpgrade("c", 44)) {
+            mult = mult.times(35)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },
@@ -143,6 +146,11 @@ addLayer("c", {
             title:"Mulitipled?",
             description:"gain mulitipled so gain.",
             cost:new Decimal(1e39)
+        },
+        44:{
+            title:"Base",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e45)
         },
     },
     buyables: {
@@ -382,6 +390,55 @@ addLayer("a", {
             done() {return player.c.points.gte(1e45)},
             goalTooltip: "Reach 1e45 city.",
             doneTooltip: "Reach 1e45 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        73: {
+            name: "Quindecillion!",
+            done() {return player.c.points.gte(1e48)},
+            goalTooltip: "Reach 1e48 city.",
+            doneTooltip: "Reach 1e48 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        74: {
+            name: "Gogol City???",
+            done() {return player.c.points.gte(1e50)},
+            goalTooltip: "Reach 1e50 city.",
+            doneTooltip: "Reach 1e50 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        75: {
+            name: "Sexdecillion!",
+            done() {return player.c.points.gte(1e51)},
+            goalTooltip: "Reach 1e51 city.",
+            doneTooltip: "Reach 1e51 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        81: {
+            name: "Septendecillion!",
+            done() {return player.c.points.gte(1e54)},
+            goalTooltip: "Reach 1e54 city.",
+            doneTooltip: "Reach 1e54 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        82: {
+            name: "Octodecillion!",
+            done() {return player.c.points.gte(1e57)},
+            goalTooltip: "Reach 1e57 city.",
+            doneTooltip: "Reach 1e57 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        83: {
+            name: "Novemdecillion!",
+            done() {return player.c.points.gte(1e60)},
+            goalTooltip: "Reach 1e60 city.",
+            doneTooltip: "Reach 1e60 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        84: {
+            name: "Vigintillion!",
+            done() {return player.c.points.gte(1e63)},
+            goalTooltip: "Reach 1e63 city.",
+            doneTooltip: "Reach 1e63 city. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
