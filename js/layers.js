@@ -27,6 +27,9 @@ addLayer("c", {
         if (hasUpgrade("c", 23)) {
             mult = mult.times(75)
         }
+        if (hasUpgrade("c", 31)) {
+            mult = mult.times(20)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -84,6 +87,11 @@ addLayer("c", {
             title:"log(p)",
             description:"log10(p) gain.",
             cost:new Decimal(1.5e7)
+        },
+        31:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e9)
         },
     },
     buyables: {
@@ -172,7 +180,7 @@ addLayer("a", {
         },
         33: {
             name: "Guna",
-            done() {return player.c.points.gte(7209333)},
+            done() {return player.c.points.gte(1e7)},
             goalTooltip: "Reach 10,000,000 city.",
             doneTooltip: "Reach 10,000,000 city. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
@@ -182,6 +190,20 @@ addLayer("a", {
             done() {return hasUpgrade("c", 25)},
             goalTooltip: "Reach 10 Owned Upgrades.",
             doneTooltip: "Reach 10 Owned Upgrades. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        35: {
+            name: "Guna II",
+            done() {return player.c.points.gte(333333333)},
+            goalTooltip: "Reach 333,333,333 city.",
+            doneTooltip: "Reach 333,333,333 city. (Compeleted!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        41: {
+            name: "Billion",
+            done() {return player.c.points.gte(333333333)},
+            goalTooltip: "Reach 1e9 city.",
+            doneTooltip: "Reach 1e9 city. (Compeleted!)",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
