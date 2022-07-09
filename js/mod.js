@@ -50,6 +50,9 @@ function getPointGen() {
 	if (hasUpgrade("c", 12)) {
 		gain = gain.times(3)
 	}
+	if (hasUpgrade("c", 14)) {
+		gain = gain.times(player.points.add(10).log10())
+	}
 	return gain
 }
 

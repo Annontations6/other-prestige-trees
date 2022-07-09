@@ -41,5 +41,10 @@ addLayer("c", {
             description:"mulitipler for gain.",
             cost:new Decimal(25)
         },
+        14:{
+            title:"log(p)",
+            description:"log10(p) gain.",
+            cost:new Decimal(2500)
+        },
     }
 })
