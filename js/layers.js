@@ -39,6 +39,9 @@ addLayer("c", {
         if (hasUpgrade("c", 35)) {
             mult = mult.times(20)
         }
+        if (hasUpgrade("c", 42)) {
+            mult = mult.times(20)
+        }
         mult = mult.times(buyableEffect("c", 12))
         return mult
     },
@@ -122,6 +125,16 @@ addLayer("c", {
             title:"Mulitipled?",
             description:"gain mulitipled so gain.",
             cost:new Decimal(1e24)
+        },
+        41:{
+            title:"Achievement boost",
+            description:"get achievement boost.",
+            cost:new Decimal(1e31)
+        },
+        42:{
+            title:"Mulitipled?",
+            description:"gain mulitipled so gain.",
+            cost:new Decimal(1e33)
         },
     },
     buyables: {
