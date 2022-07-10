@@ -597,7 +597,7 @@ function check(id) {
                       return cost.floor()
                   },
                   effect(x) { // Effects of owning x of the items, x is a decimal
-                      let eff = Decimal.mul(0.2, x)
+                      let eff = Decimal.mul(0.3, x)
                       return eff;
                   },
                   display() { // Everything else displayed in the buyable button after the title
@@ -606,7 +606,7 @@ function check(id) {
                       Amount: " + player[this.layer].buyables[this.id] + " / 20\n\
                       <b>Atomic Burst</b> gains a +" + format(data.effect) + "x multiplier."
                   },
-                  tooltip: 'Gives +0.2x multiplier per upgrade',
+                  tooltip: 'Gives +0.3x multiplier per upgrade',
                   unlocked() { return player[this.layer].buyables[12].gte(1) }, 
                   canAfford() {
                       return player[this.layer].points.gte(tmp[this.layer].buyables[this.id].cost)},
@@ -627,7 +627,7 @@ function check(id) {
                       return cost.floor()
                   },
                   effect(x) { // Effects of owning x of the items, x is a decimal
-                      let eff = Decimal.mul(3, x)
+                      let eff = Decimal.mul(4, x)
                       return eff;
                   },
                   display() { // Everything else displayed in the buyable button after the title
