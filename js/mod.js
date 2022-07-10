@@ -13,12 +13,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0.0",
-	name: "Start",
+	num: "1.1.0",
+	name: "Intergales & Reaction Mathjax",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1.0.0 - Start</h3><br>
+    <h3>v1.1.0 - Intergales & Reaction Mathjax = 15/8/2022</h3><br>
+        - Added 3 Upgrades.<br>
+        - Added 1 Milestone.<br>
+        - Endgame at 30 Zig Zag.<br>
+	<h3>v1.0.0 - Start = 9/7/2022</h3><br>
 		- Added 2 Layers.<br>
 		- Added 22 Upgrades.<br>
 		- Added 2 Buyables.<br>
@@ -65,6 +69,9 @@ function getPointGen() {
 	if (hasUpgrade("c", 41)) {
 		gain = gain.times(player.a.points)
 	}
+	if (hasMilestone("zz", 0)) {
+		gain = gain.times(10)
+	}
 	gain = gain.times(buyableEffect("c", 11))
 	return gain
 }
@@ -79,7 +86,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.zz.points.gte(5)
+	return player.zz.points.gte(30)
 }
 
 
