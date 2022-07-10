@@ -14,6 +14,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
 	<script src="js/technical/break_eternity.js"></script>
 	<script src="js/technical/layerSupport.js"></script>
 
@@ -72,7 +77,7 @@
 			left: (player.tab !== 'none' && player.navTab !== 'none')}"
 			 :style="{'margin-top': !readData(layoutInfo.showTree) && player.tab == 'info-tab' ? '50px' : ''}">
 			<div id="version" onclick="showTab('changelog-tab')" class="overlayThing" style="margin-right: 13px" >
-				{{VERSION.withoutName}}</div>
+				{{VERSION.withoutName}} ( $$\sqrt{a_1}$$ )</div>
 			<button
 			v-if="((player.navTab == 'none' && (tmp[player.tab].row == 'side' || tmp[player.tab].row == 'otherside' || player[player.tab].prevTab)) || player[player.navTab]?.prevTab)"				class="other-back overlayThing" onclick="goBack(player.navTab == 'none' ? player.tab : player.navTab)">←</button>
 			<img id="optionWheel" class="overlayThing" v-if="player.tab!='options-tab'" src="options_wheel.png"
@@ -113,7 +118,7 @@
 			<transition-group name="fade">
 				<div v-for="popup,index in activePopups" class="popup" v-bind:class="popup.type"
 					v-bind:key="'p' + popup.id" v-on:click="() => {activePopups.splice(index, 1)}" v-bind:style="popup.color ? {'background-color': popup.color} : {}">
-					<h3>{{popup.title}}</h3><br>
+					<h3>{{popup.title}} $$sqrt{a}$$</h3><br>
 					<h2 v-html="popup.message"></h2>
 				</div>
 			</transition-group>
