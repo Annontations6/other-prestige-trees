@@ -37,9 +37,12 @@ addLayer("p", {
         },
     },
     automate() {
-        if (getBuyableAmount(this.layer, 11).gte(10)) {
+        if (player.p.x.gte(1)) {
             player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt))))
         }
+
+        //x
+        player.p.x = buyableEffect("p", 11).div(10)
 
         //t
         player.p.t = player.p.t.add(player.p.dt)
