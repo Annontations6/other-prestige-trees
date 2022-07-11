@@ -49,7 +49,7 @@ addLayer("p", {
             buy() {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            effect() {
+            effect(x) {
                 l = new Decimal(0).add(x.mul(0.1))
                 return l;
             }
