@@ -4,7 +4,12 @@ addLayer("p", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(10),
+		points: new Decimal(0),
+        dt:new Decimal(1),
+        t:new Decimal(0),
+        db:new Decimal(0),
+        b:new Decimal(0.001),
+        x:new Decimal(0)
     }},
     color: "#4BDC13",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -30,6 +35,11 @@ addLayer("p", {
                 "upgrades"
             ],
         },
+    },
+    automate() {
+        if (getBuyableAmount(this.layer, this.id).gte(10)) {
+            player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt))))
+        }
     },
     buyables: {
         11: {
