@@ -37,7 +37,7 @@ addLayer("p", {
         },
     },
     automate() {
-        if (getBuyableAmount(this.layer, this.id).gte(10)) {
+        if (getBuyableAmount(this.layer, 11).gte(10)) {
             player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt))))
         }
     },
