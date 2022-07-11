@@ -21,19 +21,28 @@ addLayer("p", {
         return new Decimal(1)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
     layerShown(){return true},
     tabFormat: {
         "Main": {
-            content: [upgrades, {
-                11: {
-                    title: "Partial Production",
-                    description: "Start gaining points.",
-                    cost: new Decimal(1),
-                },
-            },],
+            content: [
+                "main-display",
+                "buyables",
+                "upgrades"
+            ],
+        },
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal(1) },
+            display() { return "<h2>X</h2>" },
+            canAfford() { return true },
+            buy() {
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect() {
+                l = new Decimal(0).add(x.mul(0.1))
+                return l;
+            }
         },
     }
 })
