@@ -80,8 +80,8 @@ addLayer("r", {
             },
         },
         effect(x) {
-            let expo = new Decimal(0.6)
-            let l = new Decimal.pow(expo, x)
+            let base = new Decimal(2)
+            let l = new Decimal.pow(base, x)
             return l
         }
     }
