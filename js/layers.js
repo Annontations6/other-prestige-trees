@@ -44,9 +44,9 @@ addLayer("r", {
          13:{
             title:"Triple gain",
             description:"triple your point gain.",
-            cost:new Decimal(3),
+            cost:new Decimal(15),
             effect() {
-             return new Decimal(15)
+             return new Decimal(3)
          },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
          },
