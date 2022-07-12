@@ -64,7 +64,7 @@ addLayer("r", {
             description:"unlock new buyable.",
             cost:new Decimal(75),
             effect() {
-             return player.r.points.log2()
+             return new Decimal(1)
          },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
          },
