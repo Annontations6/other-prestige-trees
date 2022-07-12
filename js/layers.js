@@ -26,7 +26,20 @@ addLayer("r", {
         11:{
            title:"Double gain",
            description:"Double your point gain.",
-           cost:new Decimal(1)
-        }
+           cost:new Decimal(1),
+           effect() {
+            return new Decimal(2)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        12:{
+            title:"More Based log2(r)",
+            description:"more based have so equaltions for math.",
+            cost:new Decimal(1),
+            effect() {
+             return player.r.points.log2()
+         },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+         },
     }
 })
