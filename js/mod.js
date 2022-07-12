@@ -1,32 +1,28 @@
 let modInfo = {
-	name: "The Idle Tree",
-	id: "idletree",
+	name: "The Bigmental",
+	id: "bigmental",
 	author: "Annontations6",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal(0), // Used for hard resets and new players
-	offlineLimit: 24,  // In hours
+	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0.0",
-	name: "Start",
+	num: "0.0",
+	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1.0.0 - Start</h3><br>
-		- Added 2 Layers.<br>
-		- Added 22 Upgrades.<br>
-		- Added 2 Buyables.<br>
-		- Added 1 Layers Passivebase<br>
-		- Endgame at 5 Zig Zag.`
+	<h3>v0.0</h3><br>
+		- Added things.<br>
+		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
-
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -47,25 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade("c", 11)) {
-		gain = gain.times(2)
-	}
-	if (hasUpgrade("c", 12)) {
-		gain = gain.times(3)
-	}
-	if (hasUpgrade("c", 14)) {
-		gain = gain.times(player.points.add(10).log10())
-	}
-	if (hasUpgrade("c", 22)) {
-		gain = gain.times(player.a.points)
-	}
-	if (hasUpgrade("c", 25)) {
-		gain = gain.times(player.points.add(10).log10())
-	}
-	if (hasUpgrade("c", 41)) {
-		gain = gain.times(player.a.points)
-	}
-	gain = gain.times(buyableEffect("c", 11))
+	if (hasUpgrade("r", 11)) gain = gain.times(2)
 	return gain
 }
 
@@ -79,7 +57,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.zz.points.gte(5)
+	return player.points.gte(new Decimal("e280000000"))
 }
 
 
@@ -93,7 +71,7 @@ var backgroundStyle = {
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-	return(86400) // Default is 1 hour which is just arbitrarily large
+	return(3600) // Default is 1 hour which is just arbitrarily large
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
