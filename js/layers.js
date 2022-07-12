@@ -35,7 +35,7 @@ addLayer("r", {
         12:{
             title:"More Based log2(r)",
             description:"more based have so equaltions for math.",
-            cost:new Decimal(1),
+            cost:new Decimal(3),
             effect() {
              return player.r.points.log2()
          },
