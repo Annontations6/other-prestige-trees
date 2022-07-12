@@ -41,5 +41,48 @@ addLayer("r", {
          },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
          },
+         13:{
+            title:"Triple gain",
+            description:"triple your point gain.",
+            cost:new Decimal(3),
+            effect() {
+             return new Decimal(15)
+         },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+         },
+         14:{
+            title:"More Based log2(r)",
+            description:"more based have so equaltions for math.",
+            cost:new Decimal(25),
+            effect() {
+             return player.r.points.log2()
+         },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+         },
+         15:{
+            title:"Buyable",
+            description:"unlock new buyable.",
+            cost:new Decimal(75),
+            effect() {
+             return player.r.points.log2()
+         },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+         },
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal.pow(2, x).mul(15) },
+            display() { return "Point Buyable" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+        },
+        effect(x) {
+            let expo = new Decimal(0.6)
+            let l = new Decimal.pow(expo, x)
+            return l
+        }
     }
 })
