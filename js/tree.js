@@ -31,7 +31,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B1" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -40,7 +40,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B2" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -49,7 +49,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B3" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -58,7 +58,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B4" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -67,7 +67,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B5" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -76,7 +76,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B6" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -85,7 +85,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B7" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -94,7 +94,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B8" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -103,7 +103,7 @@ addLayer("yet-another-merge-game", {
             display() { return "B9" },
             canAfford() { return points.gte(this.cost()) },
             buy() {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                points = points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
