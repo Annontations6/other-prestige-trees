@@ -25,6 +25,10 @@ addLayer("yet-another-merge-game", {
             { "color": "blue", "font-size": "29px", "font-family": "Comic Sans MS" }],
         "buyables"
     ],
+    automate(){
+        // POINTS
+        points = points.add(new Decimal(1))
+    },
     buyables: {
         11: {
             cost(x) { return new Decimal.pow(5, x).mul(5) },
