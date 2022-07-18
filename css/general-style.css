@@ -39,3 +39,8 @@ h1, h2, h3, b, input {
 	color: var(--points);
 	text-shadow: 0 0 10px var(--points);
 }
+
+.aleph{
+    font-weight: bold;
+    text-shadow: 0.07em 0 0.07em currentColor;
+}

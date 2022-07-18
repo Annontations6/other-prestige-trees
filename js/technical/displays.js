@@ -9,7 +9,7 @@ function prestigeButtonText(layer) {
 	if (tmp[layer].type == "none")
 		return ""
     
-        return "You need prestige button text"
+        return "You need prestige button text..."
 }
 
 function constructNodeStyle(layer){
