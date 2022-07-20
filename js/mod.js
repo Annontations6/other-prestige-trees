@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "The True Exponential Tree",
 	id: "mymod",
 	pointsName: "points",
 	discordName: "",
