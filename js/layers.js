@@ -42,3 +42,25 @@ addLayer("greek1", {
             }
         }
 })
+
+addLayer("sa", {
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+    color: "orange",
+    resource: "Secret Achievements", 
+    symbol: "A?",
+    row: "side",
+    layerShown(){return player[this.layer].best.gt(0)},
+    achievements: {
+        11: {
+            name: "You Played, Wow this tricle",
+            done() {return player.greek1.points.gte(1)},
+            goalTooltip: "Reach 1 &alpha;.",
+            doneTooltip: "Reach 1 &alpha;. (Completed!)",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+    },
+},
+)
