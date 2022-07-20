@@ -6,7 +6,7 @@ addLayer("greek1", {
             unlocked: true,
 			points: new Decimal(0),
             autoalpha:false,
-            abasereq:new Decima(2.45),
+            abasereq:new Decimal(2.45),
             areq:new Decimal(15)
         }},
         color: "#FF0000",
