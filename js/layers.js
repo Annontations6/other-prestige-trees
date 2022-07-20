@@ -29,7 +29,7 @@ addLayer("greek1", {
         ],
         layerShown(){return true},
         automate() {
-            player.greek1.areq = new Decimal.pow(3, player.greek1.points).mul(15)
+            player.greek1.areq = new Decimal.pow(player.greek1.abasereq, player.greek1.points).mul(15)
         },
         clickables: {
             11: {
