@@ -52,7 +52,7 @@ addLayer("a", {
     resource: "Goals", 
     symbol: "G",
     row: "side",
-    layerShown(){return player[this.layer].best.gt(0)},
+    layerShown(){return true},
     achievements: {
         11: {
             name: "You Played, Wow this tricle",
