@@ -43,14 +43,14 @@ addLayer("greek1", {
         }
 })
 
-addLayer("sa", {
+addLayer("a", {
     startData() { return {
         unlocked: true,
         points: new Decimal(0),
     }},
-    color: "orange",
-    resource: "Secret Achievements", 
-    symbol: "A?",
+    color: "yellow",
+    resource: "Goals", 
+    symbol: "G",
     row: "side",
     layerShown(){return player[this.layer].best.gt(0)},
     achievements: {
