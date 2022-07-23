@@ -38,7 +38,7 @@ addLayer("p", {
     },
     automate() {
         if (player.p.x.gte(1)) {
-            player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt)).mul(new Decimal.pow(10, player.mu.points))))
+            player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt)).mul(player.mu.points)))
         }
 
         //x
