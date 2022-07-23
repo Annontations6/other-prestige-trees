@@ -119,7 +119,7 @@ addLayer("mu", {
     layerShown(){return player.p.points.gte("1e800000")},
     clickables: {
         11: {
-            display() {return "<h2>Prestige at +" + dmu  +" Mu.</h2>"},
+            display() {return "<h2>Prestige at +" + player.mu.dmu  +" Mu.</h2>"},
             canClick(){return player.mu.dmu.gte(1)},
             onClick() {
                 player.p.points = new Decimal(1.0001)
