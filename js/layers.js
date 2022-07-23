@@ -95,6 +95,7 @@ addLayer("mu", {
     name: "mu", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "µ", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    branches:["p"],
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -130,7 +131,7 @@ addLayer("mu", {
         player.mu.dmu = player.p.points.log10().div(36)
     },
     tabFormat: {
-        "Main tab": {
+        "Main": {
             content: [
                 "main-display",
                 ["display-text",
