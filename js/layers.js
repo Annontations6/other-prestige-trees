@@ -115,7 +115,7 @@ addLayer("mu", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return player.p.gte("1e800000")},
+    layerShown(){return player.p.points.gte("1e800000")},
     clickables: {
         11: {
             display() {return "<h2>Prestige at +" + dmu  +" Mu.</h2>"},
