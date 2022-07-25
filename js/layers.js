@@ -124,11 +124,12 @@ addLayer("mu", {
             onClick() {
                 player.p.points = new Decimal(1.0001)
                 player.mu.points = player.mu.points.add(player.mu.dmu)
+                player.p.b = player.p.b.add(player.p.db)
             }
         }
     },
     automate(){
-        player.mu.dmu = player.p.points.log10().div(36)
+        player.mu.dmu = player.p.points.log10().div(123456)
     },
     tabFormat: {
         "Main": {
