@@ -147,7 +147,8 @@ addLayer("mu", {
             effect(x) {
                 let l = new Decimal.pow(3, x)
                 return l
-            }
+            },
+            unlocked() {return hasMilestone("mu", 0)}
         },
         12: {
             cost(x) { return new Decimal.pow(1e8, x).mul(150) },
@@ -160,7 +161,8 @@ addLayer("mu", {
             effect(x) {
                 let l = new Decimal(x.add(1))
                 return l
-            }
+            },
+            unlocked() {return hasMilestone("mu", 0)}
         },
     },
     automate(){
