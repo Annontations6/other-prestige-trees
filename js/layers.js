@@ -38,7 +38,7 @@ addLayer("p", {
     },
     automate() {
         if (player.p.x.gte(1)) {
-            player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt)).mul(player.mu.points)))
+            player.p.points = player.p.points.times(new Decimal(Math.E).pow(player.p.b.times(1000).times(player.p.x.times(player.p.dt)).mul(player.mu.points).mul(buyableEffect("mu", 11)).mul(buyableEffect("mu", 12))))
         }
 
         //x
@@ -128,6 +128,41 @@ addLayer("mu", {
             }
         }
     },
+    milestones: {
+        0: {
+            requirementDescription: "100 Mu",
+            effectDescription: "Unlock new 2 upgrades.",
+            done() { return player.w.points.gte(123) }
+        }
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal.pow(1e8, x).mul(150) },
+            display() { return "<h2>Triple Eulers Power gain.</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let l = new Decimal.pow(3, x)
+                return l
+            }
+        },
+        12: {
+            cost(x) { return new Decimal.pow(1e8, x).mul(150) },
+            display() { return "<h2>Increase Eulers power gain by 1</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let l = new Decimal(x.add(1))
+                return l
+            }
+        },
+    },
     automate(){
         player.mu.dmu = player.p.points.log10().div(123456)
     },
@@ -138,7 +173,9 @@ addLayer("mu", {
                 ["display-text",
         function() { return 'You Have ' + player.mu.dmu + "dµ, at prestige gain to be reset." },
         { "color": "yellow", "font-size": "30px", "font-family": "Consolas" }],
-                "clickables"
+                "clickables",
+                "milestones",
+                "buyables"
             ],
         },
     }
