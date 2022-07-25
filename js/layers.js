@@ -111,7 +111,7 @@ addLayer("p", {
             },
             effect(x) {
                 expo = new Decimal(1).add(x.div(25).floor())
-                l = new Decimal(0).add(x.mul("18").pow(expo))
+                l = new Decimal(0).add(x.mul(new Decimal(18).add(buyableEffect("mu", 13).add(buyableEffect("mu", 14)))).pow(expo))
 
                 return l;
             }
@@ -161,6 +161,11 @@ addLayer("mu", {
             requirementDescription: "100 Mu",
             effectDescription: "Unlock new 2 upgrades.",
             done() { return player.mu.points.gte(100) }
+        },
+        1: {
+            requirementDescription: "1e10 Mu",
+            effectDescription: "Unlock new another 2 upgrades.",
+            done() { return player.mu.points.gte(1e10) }
         }
     },
     buyables: {
@@ -191,6 +196,34 @@ addLayer("mu", {
                 return l
             },
             unlocked() {return hasMilestone("mu", 0)}
+        },
+        13: {
+            cost(x) { return new Decimal.pow(1e5, x).mul(1e11) },
+            display() { return "<h2>Increase W Power by 1</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let l = new Decimal(x)
+                return l
+            },
+            unlocked() {return hasMilestone("mu", 1)}
+        },
+        14: {
+            cost(x) { return new Decimal.pow(1e5, x).mul(1e16) },
+            display() { return "<h2>Increase W Power by 0.3</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let l = new Decimal(x.mul(0.3))
+                return l
+            },
+            unlocked() {return hasMilestone("mu", 1)}
         },
     },
     automate(){
@@ -330,6 +363,27 @@ addLayer("g", {
             done() {return player.p.points.gte("ee12")},
             goalTooltip: "Reach ee12 mu.",
             doneTooltip: "Reach ee12 mu.",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        51: {
+            name: "If we dialogue.",
+            done() {return player.mu.points.gte("1e10")},
+            goalTooltip: "Reach 1e10 mu.",
+            doneTooltip: "Reach 1e10 mu.",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        52: {
+            name: "I Trillion",
+            done() {return player.mu.points.gte("1e12")},
+            goalTooltip: "Reach 1e12 mu.",
+            doneTooltip: "Reach 1e12 mu.",
+            onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
+        },
+        53: {
+            name: "QUINTILLION OF POWER???",
+            done() {return player.p.points.gte("ee18")},
+            goalTooltip: "Reach ee18 mu.",
+            doneTooltip: "Reach ee18 mu.",
             onComplete() {player[this.layer].points = player[this.layer].points.add(1)},
         },
     },
