@@ -211,7 +211,7 @@ addLayer("mu", {
     }
 })
 
-addLayer("sa", {
+addLayer("g", {
     startData() { return {
         unlocked: true,
         points: new Decimal(0),
