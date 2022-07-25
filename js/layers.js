@@ -151,7 +151,7 @@ addLayer("mu", {
             unlocked() {return hasMilestone("mu", 0)}
         },
         12: {
-            cost(x) { return new Decimal.pow(1e8, x).mul(1e3) },
+            cost(x) { return new Decimal.pow(10, x).mul(1e3) },
             display() { return "<h2>Increase Eulers power gain by 1</h2>" },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
