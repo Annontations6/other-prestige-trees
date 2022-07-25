@@ -42,7 +42,7 @@ addLayer("p", {
         }
 
         //x
-        player.p.x = buyableEffect("p", 11).add(buyableEffect("p", 12).add(buyableEffect("p", 13)))
+        player.p.x = buyableEffect("p", 11).add(buyableEffect("p", 12).add(buyableEffect("p", 13))).add(buyableEffect("p", 14)).add(buyableEffect("p", 15))
 
         //t
         player.p.t = player.p.t.add(player.p.dt)
@@ -84,6 +84,34 @@ addLayer("p", {
             effect(x) {
                 expo = new Decimal(1).add(x.div(25).floor())
                 l = new Decimal(0).add(x.mul("8").pow(expo))
+
+                return l;
+            }
+        },
+        14: {
+            cost(x) { return new Decimal("e1.27e10").pow(new Decimal.pow(3, x)) },
+            display() { return "<h2>U</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                expo = new Decimal(1).add(x.div(25).floor())
+                l = new Decimal(0).add(x.mul("12").pow(expo))
+
+                return l;
+            }
+        },
+        15: {
+            cost(x) { return new Decimal("e3.32e14").pow(new Decimal.pow(3, x)) },
+            display() { return "<h2>V</h2>" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                expo = new Decimal(1).add(x.div(25).floor())
+                l = new Decimal(0).add(x.mul("18").pow(expo))
 
                 return l;
             }
