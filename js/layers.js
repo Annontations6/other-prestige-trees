@@ -132,7 +132,7 @@ addLayer("mu", {
         0: {
             requirementDescription: "100 Mu",
             effectDescription: "Unlock new 2 upgrades.",
-            done() { return player.w.points.gte(123) }
+            done() { return player.mu.points.gte(100) }
         }
     },
     buyables: {
@@ -151,7 +151,7 @@ addLayer("mu", {
             unlocked() {return hasMilestone("mu", 0)}
         },
         12: {
-            cost(x) { return new Decimal.pow(1e8, x).mul(150) },
+            cost(x) { return new Decimal.pow(1e8, x).mul(1e3) },
             display() { return "<h2>Increase Eulers power gain by 1</h2>" },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
